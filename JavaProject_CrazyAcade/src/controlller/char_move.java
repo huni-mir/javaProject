@@ -1,9 +1,12 @@
+package controlller;
 
-public class test {
+public class char_move {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("helloworld\n"); 
+		
 	}
 
 }
+
+// 인자 받아서 1,2p 구분 
