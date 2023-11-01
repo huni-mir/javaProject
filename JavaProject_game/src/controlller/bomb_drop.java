@@ -6,7 +6,7 @@ public class bomb_drop {
 		// TODO Auto-generated method stub
 
 	}
-
+   //tet
 }
 
 // 물풍선 갯수, 
