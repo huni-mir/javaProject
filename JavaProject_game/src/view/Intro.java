@@ -1,11 +1,15 @@
 package view;
 
-public class Intro {
-			
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+import javax.swing.JFrame;
 
+public class Intro extends JFrame{
+	public Intro() {
+		setTitle("");
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 }
-//시작 화면..........
+//시작 화면
