@@ -35,26 +35,6 @@ public class Intro extends JPanel{
 		
 
 		ExitBtn.setName("ExitBtn");
-		StartBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent o) {
-				JButton start = (JButton)o.getSource();
-				//캐릭터 고르는 화면으로 이동
-			}
-		});
-		ExplainBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent o) {
-				JButton explain = (JButton)o.getSource();
-				//게임 설명 패널
-			}
-		});
-		ExitBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent o) {
-				JButton exit = (JButton)o.getSource();
-				System.exit(0);
-				//종료
-			}
-		});
-
 
 		StartBtn.setBounds(620, 521, 351, 95);
 		ExplainBtn.setBounds(620, 646, 351, 95);
