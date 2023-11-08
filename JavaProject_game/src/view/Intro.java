@@ -30,8 +30,6 @@ public class Intro extends JPanel{
 
 		ExitBtn.setName("ExitBtn.png");	
 
-		ExitBtn.setName("ExitBtn");
-
 		StartBtn.setBounds(620, 521, 351, 95);
 		ExplainBtn.setBounds(620, 646, 351, 95);
 		ExitBtn.setBounds(620, 771, 351, 95);
