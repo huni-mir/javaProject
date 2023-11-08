@@ -1,6 +1,6 @@
 package controlller;
 
-public class Char_Move {
+public class Character_Move {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
