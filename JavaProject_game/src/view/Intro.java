@@ -29,7 +29,19 @@ private ImageIcon introIc = new ImageIcon(""); // 인트로 이미지
 				//캐릭터 고르는 화면으로 이동
 			}
 		});
-		StartBtn.setBounds(254, 334, 291, 81);
+		ExplainBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton explain = (JButton)o.getSource();
+				//게임 설명 패널
+			}
+		});
+		ExitBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton exit = (JButton)o.getSource();
+				//캐
+			}
+		});
+		StartBtn.setBounds(620, 521, 351, 95);
 		add(StartBtn);
 		StartBtn.setBorderPainted(false);
 		StartBtn.setContentAreaFilled(false);
