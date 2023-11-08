@@ -6,7 +6,7 @@ public class Char_Move {
 		// TODO Auto-generated method stub
 		
 	}
-adfadsf;
+
 }
 
 // 인자 받아서 1,2p 구분 
