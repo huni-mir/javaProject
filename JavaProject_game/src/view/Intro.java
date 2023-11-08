@@ -52,7 +52,7 @@ public class Intro extends JPanel{
 			JButton start = (JButton)e.getSource();
 			//캐릭터 고르는 화면으로 이동
 			}
-		});
+		});dfff
 		ExplainBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JButton explain = (JButton)e.getSource();
