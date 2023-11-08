@@ -23,6 +23,10 @@ private ImageIcon introIc = new ImageIcon("img/background/intro"); // 인트로 
 	private Intro(Object o) {
 		StartBtn = new JButton(start);
 		StartBtn.setName("StartBtn");
+		ExplainBtn = new JButton(explain);
+		ExplainBtn.setName("ExplainBtn");
+		ExitBtn = new JButton(exit);
+		ExitBtn.setName("ExitBtn");
 		StartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent o) {
 				JButton start = (JButton)o.getSource();
@@ -38,14 +42,24 @@ private ImageIcon introIc = new ImageIcon("img/background/intro"); // 인트로 
 		ExitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent o) {
 				JButton exit = (JButton)o.getSource();
-				//캐
+				System.exit(0);
 			}
 		});
 		StartBtn.setBounds(620, 521, 351, 95);
+		ExplainBtn.setBounds(620, 646, 351, 95);
+		ExitBtn.setBounds(620, 771, 351, 95);
 		add(StartBtn);
+		add(ExplainBtn);
+		add(ExitBtn);
 		StartBtn.setBorderPainted(false);
 		StartBtn.setContentAreaFilled(false);
 		StartBtn.setFocusPainted(false);
+		ExplainBtn.setBorderPainted(false);
+		ExplainBtn.setContentAreaFilled(false);
+		ExplainBtn.setFocusPainted(false);
+		ExitBtn.setBorderPainted(false);
+		ExitBtn.setContentAreaFilled(false);
+		ExitBtn.setFocusPainted(false);
 		
 	}
 }
