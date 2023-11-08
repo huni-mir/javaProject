@@ -8,3 +8,4 @@ public class Intro {
 	}
 
 }
+//시작 화면
