@@ -13,9 +13,9 @@ private ImageIcon introIc = new ImageIcon(""); // 인트로 이미지
 		g.drawImage(introIc.getImage(), 0, 0, null);
 		
 	}
-	private ImageIcon start = new ImageIcon(""); //시작 버튼 이미지 주소
-	private ImageIcon explain = new ImageIcon(""); //설명 버튼 이미지 주소
-	private ImageIcon exit = new ImageIcon(""); //종료 버튼 이미지 주소
+	private ImageIcon start = new ImageIcon("img/button/gameStart"); //시작 버튼 이미지 주소
+	private ImageIcon explain = new ImageIcon("img/button/gameEx"); //설명 버튼 이미지 주소
+	private ImageIcon exit = new ImageIcon("img/button/Quit"); //종료 버튼 이미지 주소
 	private JButton StartBtn;
 	private JButton ExplainBtn;
 	private JButton ExitBtn;
