@@ -28,11 +28,7 @@ public class Intro extends JPanel{
 		ExplainBtn.setName("ExplainBtn.png");
 		ExitBtn = new JButton(exit);
 
-		ExitBtn.setName("ExitBtn.png");
-		
-
-		ExitBtn.setName("ExitBtn.png");
-		
+		ExitBtn.setName("ExitBtn.png");	
 
 		ExitBtn.setName("ExitBtn");
 
