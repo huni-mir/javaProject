@@ -1,5 +1,7 @@
 package Practice;
 
-public class Practice {
+import java.awt.*;
 
+public class Practice {
+	
 }

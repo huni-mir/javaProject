@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Intro extends JPanel{
-private ImageIcon introIc = new ImageIcon(""); // 인트로 이미지
+private ImageIcon introIc = new ImageIcon("img/background/intro"); // 인트로 이미지
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // 화면을 비운다
 		
@@ -15,7 +15,7 @@ private ImageIcon introIc = new ImageIcon(""); // 인트로 이미지
 	}
 	private ImageIcon start = new ImageIcon("img/button/gameStart"); //시작 버튼 이미지 주소
 	private ImageIcon explain = new ImageIcon("img/button/gameEx"); //설명 버튼 이미지 주소
-	private ImageIcon exit = new ImageIcon("img/button/Quit"); //종료 버튼 이미지 주소
+	private ImageIcon exit = new ImageIcon("img/button/gameQuit"); //종료 버튼 이미지 주소
 	private JButton StartBtn;
 	private JButton ExplainBtn;
 	private JButton ExitBtn;
