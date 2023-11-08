@@ -42,11 +42,8 @@ private ImageIcon introIc = new ImageIcon("img/background/intro"); // 인트로 
 		ExitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent o) {
 				JButton exit = (JButton)o.getSource();
-<<<<<<< Updated upstream
 				System.exit(0);
-=======
 				//종료
->>>>>>> Stashed changes
 			}
 		});
 		StartBtn.setBounds(620, 521, 351, 95);
