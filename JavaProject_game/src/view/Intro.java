@@ -1,6 +1,6 @@
-package controlller;
+package view;
 
-public class bomb_drop {
+public class Intro {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -8,5 +8,3 @@ public class bomb_drop {
 	}
 
 }
-
-// 물풍선 갯수, 
