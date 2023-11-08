@@ -27,8 +27,31 @@ public class Intro extends JPanel{
 		ExplainBtn = new JButton(explain);
 		ExplainBtn.setName("ExplainBtn.png");
 		ExitBtn = new JButton(exit);
+<<<<<<< HEAD
 		ExitBtn.setName("ExitBtn.png");
 		
+=======
+		ExitBtn.setName("ExitBtn");
+		StartBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton start = (JButton)o.getSource();
+				//캐릭터 고르는 화면으로 이동
+			}
+		});
+		ExplainBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton explain = (JButton)o.getSource();
+				//게임 설명 패널
+			}
+		});
+		ExitBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton exit = (JButton)o.getSource();
+				System.exit(0);
+				//종료
+			}
+		});
+>>>>>>> 20d3277b2f3735ecf716234848a2c19bb1479503
 		StartBtn.setBounds(620, 521, 351, 95);
 		ExplainBtn.setBounds(620, 646, 351, 95);
 		ExitBtn.setBounds(620, 771, 351, 95);
