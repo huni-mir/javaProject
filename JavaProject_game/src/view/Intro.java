@@ -27,7 +27,6 @@ public class Intro extends JPanel{
 		ExplainBtn = new JButton(explain);
 		ExplainBtn.setName("ExplainBtn.png");
 		ExitBtn = new JButton(exit);
-
 		ExitBtn.setName("ExitBtn.png");	
 
 		StartBtn.setBounds(620, 521, 351, 95);
