@@ -9,6 +9,5 @@ public class Character {
 	private JLabel bear = new JLabel("img/character/bearFont.png");
 	private JLabel astronaut = new JLabel("img/character/astronautFont.png"); 
 	
-		
-}
 	
+}
