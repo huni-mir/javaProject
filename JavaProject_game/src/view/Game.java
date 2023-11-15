@@ -1,17 +1,18 @@
 package view;
 
-import java.awt.Graphics;
 import java.util.Vector;
 import java.awt.*;
 import javax.swing.*;
 
     class Beullog extends JPanel{
 	int size;
+	int size1;
 	   String map[][];
 
-	   public Beullog(int size) {
+	   public Beullog(int size, int size1) {
 	      this.size = size;
-	      map = new String[size][size+4];
+	      this.size1 = size1;
+	      map = new String[size][size1];
 	      this.setLayout(null);
 	      this.setBounds(0, 0, 1200, 900);
 
@@ -22,19 +23,32 @@ public class Game extends JFrame {
 	private JLabel contentPane;
 	 private Vector<JLabel> item = new Vector<JLabel>();
 	public void Game() {
-		
-		//dsg
+	
 	}
 	public void Map() {
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      setBounds(0, 0, 1200, 900);
-	      setLocationRelativeTo(null);
-	      contentPane = new JLabel(new ImageIcon("img/background/MainGame.png"));//게임 배경화면
-	      contentPane.setLayout(null);
-	      setContentPane(contentPane);
+	        setSize(1600,945);
+	        //setBounds(0, 0, 1600, 900);
+	        setLocationRelativeTo(null);
+	        Container c = getContentPane();
+	        JLabel Gameimage = new JLabel(new ImageIcon("img/background/MainGame.png"));//게임 배경화면
+	        c.setBounds(0, 0, 1600, 900);
+	        c.setLayout(new FlowLayout(FlowLayout.LEFT));
+	        setVisible(true);
+	        c.add(Gameimage);
 	      
-	      Beullog beullog = new Beullog(16);
-	      
+	      Beullog beullog = new Beullog(12,16);
+	      for (int i = 0; i < beullog.size; i++) {
+	          for (int j = 0; j < beullog.size1; j++) {
+	             beullog.map[i][j] = "1";
+	             String block = beullog.map[i][j];
+	             if ((i < 3 || j == 1) || i == 14 || j == 0) {
+	                JLabel beullog1 = new JLabel(new ImageIcon("images/block/Block.png"));
+	                item.add(beullog1);
+	                this.add(beullog1);
+	                beullog1.setBounds(i * 40 + 1, j * 40, 45, 45);
+	             } 
+	          }
 	      /*JLabel beullog1 = new JLabel(new ImageIcon("img/block/Block.png"));
 	      JLabel beullog2 = new JLabel(new ImageIcon("img/block/BlueBlock.png"));
 	      JLabel beullog3 = new JLabel(new ImageIcon("img/block/PinkBlock.png"));

@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.*;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,12 +22,16 @@ class Beullog extends JPanel{
 public class test extends JFrame{
     public test(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(0, 0, 1600, 900);
+        setSize(1600,945);
+        //setBounds(0, 0, 1600, 900);
         setLocationRelativeTo(null);
-        JLabel contentPane = new JLabel(new ImageIcon("img/background/MainGame.png"));//게임 배경화면
-        contentPane.setLayout(null);
+        Container c = getContentPane();
+        JLabel Gameimage = new JLabel(new ImageIcon("img/background/MainGame.png"));//게임 배경화면
+        c.setBounds(0, 0, 1600, 900);
+        c.setLayout(new FlowLayout(FlowLayout.LEFT));
         setVisible(true);
-        setContentPane(contentPane);
+        c.add(Gameimage);
+        
 
         Beullog beullog = new Beullog(0);
         JLabel beullog1 = new JLabel(new ImageIcon("img/block/Block.png"));
