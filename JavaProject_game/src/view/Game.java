@@ -9,6 +9,7 @@ public class Game extends JFrame {
 	private JLabel contentPane;
 	public void Game() {
 		
+		//dsg
 	}
 	public void Map() {
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,6 +27,7 @@ public class Game extends JFrame {
 	      JLabel beullog5 = new JLabel(new ImageIcon("img/background/SkyBlock.png"));
 	      beullog4.setBounds(0,0,75,75);
 	      this.add(beullog4);
+	      
 	      beullog4.setBounds(75,0,75,75);
 	      this.add(beullog4);
 	      beullog4.setBounds(150,0,75,75);
@@ -149,3 +151,4 @@ public class Game extends JFrame {
 	      
 	}
 }
+
