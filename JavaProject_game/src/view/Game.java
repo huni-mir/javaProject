@@ -1,12 +1,26 @@
 package view;
 
 import java.awt.Graphics;
+import java.util.Vector;
 import java.awt.*;
-
 import javax.swing.*;
+
+    class Beullog extends JPanel{
+	int size;
+	   String map[][];
+
+	   public Beullog(int size) {
+	      this.size = size;
+	      map = new String[size][size+4];
+	      this.setLayout(null);
+	      this.setBounds(0, 0, 1200, 900);
+
+	   }
+}
 
 public class Game extends JFrame {
 	private JLabel contentPane;
+	 private Vector<JLabel> item = new Vector<JLabel>();
 	public void Game() {
 		
 		//dsg
@@ -19,8 +33,9 @@ public class Game extends JFrame {
 	      contentPane.setLayout(null);
 	      setContentPane(contentPane);
 	      
-	      Beullog beullog = new Beullog();
-	      JLabel beullog1 = new JLabel(new ImageIcon("img/block/Block.png"));
+	      Beullog beullog = new Beullog(16);
+	      
+	      /*JLabel beullog1 = new JLabel(new ImageIcon("img/block/Block.png"));
 	      JLabel beullog2 = new JLabel(new ImageIcon("img/block/BlueBlock.png"));
 	      JLabel beullog3 = new JLabel(new ImageIcon("img/block/PinkBlock.png"));
 	      JLabel beullog4 = new JLabel(new ImageIcon("img/block/RedBlock.png"));
@@ -146,9 +161,11 @@ public class Game extends JFrame {
 	      beullog3.setBounds(900,525,75,75);
 	      this.add(beullog2);
 	      beullog3.setBounds(1125,525,75,75);
-	      this.add(beullog2);// A
+	      this.add(beullog2);// A*/
 	      
 	      
 	}
+	
 }
+
 
