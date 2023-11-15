@@ -19,11 +19,11 @@ public class Game extends JFrame {
 	      setContentPane(contentPane);
 	      
 	      Beullog beullog = new Beullog();
-	      JLabel beullog1 = new JLabel(new ImageIcon("img/background/Block.png"));
-	      JLabel beullog2 = new JLabel(new ImageIcon("img/background/BlueBlock.png"));
-	      JLabel beullog3 = new JLabel(new ImageIcon("img/background/PinkBlock.png"));
-	      JLabel beullog4 = new JLabel(new ImageIcon("img/background/RedBlock.png"));
-	      JLabel beullog5 = new JLabel(new ImageIcon("img/background/SkyBlock.png"));
+	      JLabel beullog1 = new JLabel(new ImageIcon("img/block/Block.png"));
+	      JLabel beullog2 = new JLabel(new ImageIcon("img/block/BlueBlock.png"));
+	      JLabel beullog3 = new JLabel(new ImageIcon("img/block/PinkBlock.png"));
+	      JLabel beullog4 = new JLabel(new ImageIcon("img/block/RedBlock.png"));
+	      JLabel beullog5 = new JLabel(new ImageIcon("img/block/SkyBlock.png"));
 	      beullog4.setBounds(0,0,75,75);
 	      this.add(beullog4);
 	      beullog4.setBounds(75,0,75,75);
