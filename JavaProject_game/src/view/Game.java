@@ -42,11 +42,11 @@ public class Game extends JFrame {
 	          for (int j = 0; j < beullog.size1; j++) {
 	             beullog.map[i][j] = "1";
 	             String block = beullog.map[i][j];
-	             if ((i < 3 || j == 1) || i == 14 || j == 0) {
-	                JLabel beullog1 = new JLabel(new ImageIcon("images/block/Block.png"));
-	                item.add(beullog1);
-	                this.add(beullog1);
-	                beullog1.setBounds(i * 40 + 1, j * 40, 45, 45);
+	             if ((i ==0  && j < 3) || (i == 0 || (j>14 && j < 16))) {
+	                JLabel beullog4 = new JLabel(new ImageIcon("img/block/RedBlock.png"));
+	                item.add(beullog4);
+	                this.add(beullog4);
+	                beullog4.setBounds(i * 70 + 12, j * 70+16, 75, 75);
 	             } 
 	          }
 	      /*JLabel beullog1 = new JLabel(new ImageIcon("img/block/Block.png"));
@@ -179,7 +179,7 @@ public class Game extends JFrame {
 	      
 	      
 	}
-	
+	}
 }
 
 
