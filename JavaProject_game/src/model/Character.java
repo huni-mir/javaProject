@@ -5,14 +5,14 @@ import javax.swing.*;
 
 public class Character {
 	//캐릭터 앞모습
-	private JLabel cat = new JLabel("img/character/catFont.png");
+	public JLabel cat = new JLabel("img/character/catFont.png");
 	private JLabel rabbit = new JLabel("img/character/rabbitFont.png");
 	private JLabel bear = new JLabel("img/character/bearFont.png");
 	private JLabel astronaut = new JLabel("img/character/astronautFont.png"); 
 	//캐릭터 뒷모습
-	private JLabel catback = new JLabel("img/character/astronautBack.png"); 
-	private JLabel rabbitback = new JLabel("img/character/astronautBack.png"); 
-	private JLabel bearback = new JLabel("img/character/astronautBack.png"); 
+	private JLabel catback = new JLabel("img/character/catBack.png"); 
+	private JLabel rabbitback = new JLabel("img/character/rabbitBack.png"); 
+	private JLabel bearback = new JLabel("img/character/bearBack.png"); 
 	private JLabel astronautback = new JLabel("img/character/astronautBack.png"); 
 	//캐릭터 오른쪽
 	private JLabel catright = new JLabel("img/character/catright.png");

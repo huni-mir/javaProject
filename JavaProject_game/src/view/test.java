@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import model.*;
 class Beullog extends JPanel{
 	int size;
 	   String map[][];
@@ -31,6 +31,7 @@ public class test extends JFrame{
         c.setLayout(new FlowLayout(FlowLayout.LEFT));
         setVisible(true);
         c.add(Gameimage);
+        c.add(cat);
         
 
         Beullog beullog = new Beullog(0);
