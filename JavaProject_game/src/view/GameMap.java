@@ -35,7 +35,7 @@ public class GameMap extends JPanel {
 	int x;
 	int y;
 	int char2Bx, char2By;
-	int char1bx, char2by;
+	int char1bx, char1by;
 	int char1X = 75;
 	int char1Y = 75;
 
@@ -104,5 +104,5 @@ public class GameMap extends JPanel {
 		}
 
 	}
-
+}
 }
