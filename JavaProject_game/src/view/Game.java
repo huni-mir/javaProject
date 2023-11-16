@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.util.Vector;
 import java.awt.*;
@@ -175,11 +175,11 @@ public class Game extends JFrame {
 	      beullog3.setBounds(900,525,75,75);
 	      this.add(beullog2);
 	      beullog3.setBounds(1125,525,75,75);
-	      this.add(beullog2);// A*/
+	      this.add(beullog2);// A
 	      
 	      
 	}
 	}
-}
+}*/
 
 

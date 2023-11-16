@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.awt.*;
 import java.util.Vector;
@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import model.*;
+
 class Beullog extends JPanel{
 	int size;
 	int size1;
@@ -35,7 +35,6 @@ public class test extends JFrame{
         c.setLayout(new FlowLayout(FlowLayout.LEFT));
         setVisible(true);
         c.add(Gameimage);
-        c.add(cat);
         
         
         Beullog beullog = new Beullog(12,16);
@@ -63,4 +62,4 @@ public class test extends JFrame{
 	public static void main(String[] args){
         new test();
     }
-}
+}*/
