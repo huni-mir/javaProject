@@ -7,10 +7,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Character {
 
 	private ImageIcon font; //정면
