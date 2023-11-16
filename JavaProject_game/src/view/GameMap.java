@@ -9,15 +9,14 @@ class Beullog extends JPanel {
 	int size1;
 	String map[][];
 
-<<<<<<< HEAD
-	   public Beullog(int size, int size1) {
-	      this.size = size;
-	      this.size1 = size1;
-	      map = new String[size][size1];
-	      this.setLayout(null);
-	      this.setBounds(0, 0, 1200, 900);
-	   }
-=======
+	public Beullog(int size, int size1) {
+		this.size = size;
+		this.size1 = size1;
+		map = new String[size][size1];
+		this.setLayout(null);
+		this.setBounds(0, 0, 1200, 900);
+	}
+
 	public Beullog(int size, int size1) {
 		this.size = size;
 		this.size1 = size1;
@@ -26,7 +25,7 @@ class Beullog extends JPanel {
 		this.setBounds(0, 0, 1200, 900);
 
 	}
->>>>>>> fb564f2c78211bd726efe765e5939e4581b0d880
+
 }
 
 public class GameMap extends JPanel {
