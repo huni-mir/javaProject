@@ -51,7 +51,7 @@ public class GameMap extends JPanel{
 				}
 			}
 
-		 Beullog beullog = new Beullog(16,12);
+		 Beullog beullog = new Beullog(16,12);{
 	        for (int i = 0; i < beullog.size; i++) {
 	           for (int j = 0; j < beullog.size1; j++) {
 	        	   beullog.map[i][j] = "1";
