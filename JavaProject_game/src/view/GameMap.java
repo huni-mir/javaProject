@@ -15,7 +15,6 @@ class Beullog extends JPanel{
 	      map = new String[size][size1];
 	      this.setLayout(null);
 	      this.setBounds(0, 0, 1200, 900);
-
 	   }
 }
 
@@ -35,7 +34,7 @@ public class GameMap extends JPanel{
 	private JLabel beullog5 = new JLabel(new ImageIcon("img/block/SkyBlock.png"));
 	
 
-	private GameMap() {
+	public GameMap() {
 		setLayout(null);
 		 Beullog beullog = new Beullog(16,12);
 	        for (int i = 0; i < beullog.size; i++) {
