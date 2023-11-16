@@ -17,17 +17,6 @@ class Beullog extends JPanel {
 		this.setBounds(0, 0, 1200, 900);
 	}
 
-	public Beullog(int size, int size1) {
-		this.size = size;
-		this.size1 = size1;
-		map = new String[size][size1];
-		this.setLayout(null);
-		this.setBounds(0, 0, 1200, 900);
-
-	}
-
-}
-
 public class GameMap extends JPanel {
 	private ImageIcon MainGame = new ImageIcon("img/background/MainGame.png"); // 게임이미지
 
