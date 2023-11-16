@@ -18,6 +18,21 @@ public class TestMap extends JFrame {
 		setContentPane(new GameMap());
 		setVisible(true);
 	}
+	
+	
+	class Beullog extends JPanel {
+		int size;
+		int size1;
+		String map[][];
+
+		public Beullog(int size, int size1) {
+			this.size = size;
+			this.size1 = size1;
+			map = new String[size][size1];
+			this.setLayout(null);
+			this.setBounds(0, 0, 1200, 900);
+		}
+	}
 
 	public class GameMap extends JPanel {
 		private ImageIcon MainGame = new ImageIcon("img/background/MainGame.png"); // 인트로 이미지
@@ -29,11 +44,7 @@ public class TestMap extends JFrame {
 
 		}
 
-		private JLabel beullog1 = new JLabel(new ImageIcon("img/block/PupleBlock.png"));
-		private JLabel beullog2 = new JLabel(new ImageIcon("img/block/BlueBlock.png"));
-		private JLabel beullog3 = new JLabel(new ImageIcon("img/block/PinkBlock.png"));
-		private JLabel beullog4 = new JLabel(new ImageIcon("img/block/RedBlock.png"));
-		private JLabel beullog5 = new JLabel(new ImageIcon("img/block/SkyBlock.png"));
+		
 
 		private GameMap() {
 			setLayout(null);
