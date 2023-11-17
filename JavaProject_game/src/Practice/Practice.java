@@ -9,11 +9,11 @@ import view.*;
 public class Practice extends Listener {
 	private JFrame frame = new JFrame(); // 창을 띄우기 위한 프레임
 
-	private Intro intro; // 인트로
-	private Explain explain;
-	private Standby standby;
+	private Intro intro; // 인트로 패널
+	private Explain explain; // 설명 패널
+	private Standby standby; // 캐릭터 선택 패널
 	
-	public Practice() {
+	public Practice() {	// 프레임 영역
 		intro = new Intro(this);
 		explain = new Explain(this);
 		standby = new Standby(this);
@@ -38,8 +38,7 @@ public class Practice extends Listener {
 		frame.setVisible(true);
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		
+	public void actionPerformed(ActionEvent e) { // 버튼 리스너
 		JButton btn = (JButton)e.getSource();
 		
 		if (btn.getName().equals("StartBtn")) { // 시작 버튼 누를 시
@@ -53,7 +52,7 @@ public class Practice extends Listener {
 		else if (btn.getName().equals("ExitBtn")) { // 종료 버튼 누를 시
 			System.exit(0);		// 게임 종료
 		}
-		else if (btn.getName().equals("backBtn")) {
+		else if (btn.getName().equals("backBtn")) { // 설명창에서 돌아가기 버튼 누를 시
 			explain.setVisible(false);
 			intro.setVisible(true);
 		}

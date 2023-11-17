@@ -22,7 +22,7 @@ public class Intro extends JPanel{
 	private JButton ExplainBtn;
 	private JButton ExitBtn;
 
-	public Intro(Object o) {
+	public Intro(Object o) { // 리스너 추가를 위해서 Object o 인자 추가
 		setLayout(null);
 		StartBtn = new JButton(startIc);
 		StartBtn.setName("StartBtn");

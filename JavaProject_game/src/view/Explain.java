@@ -11,12 +11,12 @@ public class Explain extends JPanel {
 			
 		g.drawImage(explainIc.getImage(), 0, 0, null);
 	}
-	private ImageIcon back = new ImageIcon("img/button/back.png"); // 뒤로가기 버튼 이미지 주소
+	private ImageIcon backIc = new ImageIcon("img/button/back.png"); // 뒤로가기 버튼 이미지 주소
 	private JButton backBtn;
 	
-	public Explain(Object o) {
+	public Explain(Object o) { // 리스너 추가를 위해서 Object o 인자 추가
 		setLayout(null);
-		backBtn = new JButton(back);
+		backBtn = new JButton(backIc);
 		backBtn.setName("backBtn");
 		
 		backBtn.addActionListener((ActionListener) o);
