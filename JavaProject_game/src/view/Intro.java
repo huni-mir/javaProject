@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
 public class Intro extends JPanel{
 	private ImageIcon introIc = new ImageIcon("img/background/intro.png"); // 인트로 이미지
 	public void paintComponent(Graphics g) {
@@ -13,9 +12,9 @@ public class Intro extends JPanel{
 		g.drawImage(introIc.getImage(), 0, 0, null);
 		
 	}
-	private ImageIcon start = new ImageIcon("img/button/gameStart.png"); //시작 버튼 이미지 주소
-	private ImageIcon explain = new ImageIcon("img/button/gameEx.png"); //설명 버튼 이미지 주소
-	private ImageIcon exit = new ImageIcon("img/button/gameQuit.png"); //종료 버튼 이미지 주소
+	private ImageIcon startIc = new ImageIcon("img/button/gameStart.png"); //시작 버튼 이미지 주소
+	private ImageIcon explainIc = new ImageIcon("img/button/gameEx.png"); //설명 버튼 이미지 주소
+	private ImageIcon exitIc = new ImageIcon("img/button/gameQuit.png"); //종료 버튼 이미지 주소
 	private ImageIcon startSelect = new ImageIcon("img/button/gameStartSelect.png"); // 시작 버튼 선택
 	private ImageIcon explainSelect = new ImageIcon("img/button/gameExSelect.png"); // 설명 버튼 선택
 	private ImageIcon exitSelect = new ImageIcon("img/button/gameQuitSelect.png"); // 종료 버튼 선택
@@ -23,14 +22,18 @@ public class Intro extends JPanel{
 	private JButton ExplainBtn;
 	private JButton ExitBtn;
 
-	public Intro() {
+	public Intro(Object o) {
 		setLayout(null);
-		StartBtn = new JButton(start);
-		StartBtn.setName("StartBtn.png");
-		ExplainBtn = new JButton(explain);
-		ExplainBtn.setName("ExplainBtn.png");
-		ExitBtn = new JButton(exit);
-		ExitBtn.setName("ExitBtn.png");	
+		StartBtn = new JButton(startIc);
+		StartBtn.setName("StartBtn");
+		ExplainBtn = new JButton(explainIc);
+		ExplainBtn.setName("ExplainBtn");
+		ExitBtn = new JButton(exitIc);
+		ExitBtn.setName("ExitBtn");
+		
+		StartBtn.addActionListener((ActionListener) o);
+		ExplainBtn.addActionListener((ActionListener) o);
+		ExitBtn.addActionListener((ActionListener) o);
 
 		StartBtn.setBounds(625, 521, 351, 95);
 		ExplainBtn.setBounds(625, 646, 351, 95);

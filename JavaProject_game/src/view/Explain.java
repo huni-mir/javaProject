@@ -14,10 +14,12 @@ public class Explain extends JPanel {
 	private ImageIcon back = new ImageIcon("img/button/back.png"); // 뒤로가기 버튼 이미지 주소
 	private JButton backBtn;
 	
-	public Explain() {
+	public Explain(Object o) {
 		setLayout(null);
 		backBtn = new JButton(back);
 		backBtn.setName("backBtn");
+		
+		backBtn.addActionListener((ActionListener) o);
 		
 		backBtn.setBounds(44, 30, 69, 115);
 		
