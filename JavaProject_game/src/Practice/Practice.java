@@ -34,6 +34,7 @@ public class Practice extends Listener {
 		standby.setVisible(false);
 		
 		frame.setSize(1616, 939);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 	
