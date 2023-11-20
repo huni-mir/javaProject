@@ -1,4 +1,4 @@
-/*package view;
+package view;
 
 public class adfefda {
 	package map;
@@ -740,4 +740,4 @@ public class adfefda {
 	      }
 	   }
 	}
-}*/
+}
