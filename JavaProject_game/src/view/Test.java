@@ -22,9 +22,9 @@ class Beullog extends JPanel{
 
 	   }
 }
-public class test extends JFrame{
+public class Test extends JFrame{
 	 private Vector<JLabel> item = new Vector<JLabel>();
-    public test(){
+    public Test(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1600,945);
         //setBounds(0, 0, 1600, 900);
@@ -63,3 +63,6 @@ public class test extends JFrame{
         new test();
     }
 }*/
+package view;
+
+
