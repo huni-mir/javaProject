@@ -31,7 +31,7 @@ class CharacterTest1 extends JFrame {
 
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g); // 화면을 비운다
-
+			
 			g.drawImage(MainGame.getImage(), 0, 0, null);
 
 		}// 상단 캐릭터 선택 이미지 아이콘
