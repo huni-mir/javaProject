@@ -93,8 +93,7 @@ public class TestMap extends JFrame {
 		         if ((char2Bx + 40 >= item.get(i).getX() && char2Bx + 40 <= item.get(i).getX() + 16)
 		               && (char2By >= item.get(i).getY() && char2By <= item.get(i).getY() + 5)) {
 		            item.get(i).setIcon(null);
-
-		            item3 = item2[random.nextInt(3)];
+		       
 		            item3 = item2[random.nextInt(5)];
 		            itemLabel = new JLabel(item3);
 		            itemLabel.setLocation(item.get(i).getX(), item.get(i).getY());
@@ -200,7 +199,7 @@ public class TestMap extends JFrame {
 		    	 switch (itemType) {
 		         case "HeartUp":
 		             // 체력 증가 동작 수행
-		             increaseHealth();
+		            c1.
 		             break;
 		         case "SpeedUp":
 		             // 속도 증가 동작 수행
@@ -250,7 +249,6 @@ public class TestMap extends JFrame {
 							|| i < 1 && j == 10 || ((i > 14 && i < 16) && j == 10)/* 11번쨰열 */
 							|| i < 3 && j == 11 || ((i > 12 && i < 16) && j == 11)/* 12번쨰열 */) {
 						JLabel beullog1 = new JLabel(new ImageIcon("img/block/RedBlock.png"));
-						// item.add 자리
 						item.add(beullog1);
 						this.add(beullog1);
 						beullog1.setBounds(i * 75, j * 75, 75, 75);
@@ -258,7 +256,6 @@ public class TestMap extends JFrame {
 							|| (i < 2 && i > 0) && (j > 3 && j < 7)/* 5,6,7번쨰열 */
 								|| i < 2 && j == 7 /* 8번쨰열 */) {
 						JLabel beullog5 = new JLabel(new ImageIcon("img/block/SkyBlock.png"));
-						// item.add 자리
 						item.add(beullog5);
 						this.add(beullog5);
 						beullog5.setBounds(i * 75, j * 75, 75, 75); // J
@@ -268,7 +265,6 @@ public class TestMap extends JFrame {
 							|| i == 3 && j == 6 || i == 6 && j == 6 /* 7번쨰열 */
 							|| i == 3 && j == 7 || i == 6 && j == 7 /* 8번쨰열 */) {
 						JLabel beullog3 = new JLabel(new ImageIcon("img/block/PinkBlock.png"));
-						// item.add 자리
 						item.add(beullog3);
 						this.add(beullog3);
 						beullog3.setBounds(i * 75, j * 75, 75, 75);// A
@@ -278,7 +274,6 @@ public class TestMap extends JFrame {
 							|| i == 8 && j == 6 || i == 10 && j == 6 /* 7번쨰열 */
 							|| i == 9 && j == 7 /* 8번쨰열 */) {
 						JLabel beullog2 = new JLabel(new ImageIcon("img/block/BlueBlock.png"));
-						// item.add 자리
 						item.add(beullog2);
 						this.add(beullog2);
 						beullog2.setBounds(i * 75, j * 75, 75, 75);// V
@@ -287,10 +282,6 @@ public class TestMap extends JFrame {
 							|| (i > 11 && i < 16) && j == 5 /* 6번쨰열 */
 							|| i == 12 && j == 6 || i == 15 && j == 6 /* 7번쨰열 */
 							|| i == 12 && j == 7 || i == 15 && j == 7 /* 8번쨰열 */) {
-						JLabel beullog1 = new JLabel(new ImageIcon("img/block/PupleBlock.png"));
-						// item.add 자리
-						this.add(beullog1);
-						beullog1.setBounds(i * 75, j * 75, 75, 75);// A
 						JLabel beullog4 = new JLabel(new ImageIcon("img/block/PupleBlock.png"));
 						item.add(beullog4);
 						this.add(beullog4);
