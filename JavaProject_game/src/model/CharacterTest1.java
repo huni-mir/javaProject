@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.*;
+import model.Character;
 
 class CharacterTest1 extends JFrame {
 	public CharacterTest1() {
@@ -30,7 +31,7 @@ class CharacterTest1 extends JFrame {
 
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g); // 화면을 비운다
-
+			
 			g.drawImage(MainGame.getImage(), 0, 0, null);
 
 		}// 상단 캐릭터 선택 이미지 아이콘
@@ -45,9 +46,9 @@ class CharacterTest1 extends JFrame {
 		private ImageIcon chRabbitPick = new ImageIcon("img/character/rabbitProfile.png");
 		private ImageIcon chBearPick = new ImageIcon("img/character/bearProfile.png");
 		private ImageIcon chAstronautPick = new ImageIcon("img/character/AstronautProfile.png");
-
+		
 		private ImageIcon chAstronautPick1 = new ImageIcon("img/character/AstronautFont.png");
-
+		
 		// 시작 버튼 이미지 아이콘
 		private ImageIcon start = new ImageIcon("img/button/GameStartBtn.png");
 
@@ -56,30 +57,16 @@ class CharacterTest1 extends JFrame {
 		private JButton ch3;
 		private JButton ch4;
 		private JLabel ch41;
-
+		
 		// 시작 버튼
 		private JButton StartBtn;
 
 		// 게임에서 사용할 캐릭터 이미지들을 담을 오브젝트
-		private Character1P ci1P;
-		private Character2P ci2P;
+		private Character ci1P;
+		private Character ci2P;
 
-		private CharacterAbility1P ca1P;
-		private CharacterAbility2P ca2P;
-
-		public Character1P getci1P() {
+		public Character getCi1P() {
 			return ci1P;
-		}
-		public Character2P getci2P() {
-			return ci2P;
-		}
-
-
-		public CharacterAbility1P getca1P() {
-			return ca1P;
-		}
-		public CharacterAbility2P getca2P() {
-			return ca2P;
 		}
 
 		public GameMap(Object o) {
@@ -107,21 +94,19 @@ class CharacterTest1 extends JFrame {
 						ch4.setIcon(chAstronaut);
 						System.out.print("좌클릭");
 						ch41 = new JLabel(chAstronautPick1);
-						ch41.setBounds(900, 500, 100, 73);
+						ch41.setBounds(900,500,100,73);
 						add(ch41);
-						ci1P = new Character1P(new ImageIcon("img/character/catFont.png"),
+						ci1P = new Character(new ImageIcon("img/character/catFont.png"),
 								new ImageIcon("img/character/catback.png"), new ImageIcon("img/character/catleft.png"),
 								new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/catdie.png"));
-						ca1P = new CharacterAbility1P(3, 1, 2, 1);
 					} else if (e.getButton() == MouseEvent.BUTTON3) {
 						ch1.setIcon(chCatPick);
 						ch2.setIcon(chRabbit);
 						ch3.setIcon(chBear);
 						ch4.setIcon(chAstronaut);
-						ci2P = new Character2P(new ImageIcon("img/character/catFont.png"),
+						ci2P = new Character(new ImageIcon("img/character/catFont.png"),
 								new ImageIcon("img/character/catback.png"), new ImageIcon("img/character/catleft.png"),
 								new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/catdie.png"));
-						ca2P = new CharacterAbility2P(3, 1, 2, 1);
 						System.out.print("우클릭");
 					}
 
@@ -143,23 +128,21 @@ class CharacterTest1 extends JFrame {
 						ch2.setIcon(chRabbitPick);
 						ch3.setIcon(chBear);
 						ch4.setIcon(chAstronaut);
-						ci1P = new Character1P(new ImageIcon("img/character/rabbitFont.png"),
+						ci1P = new Character(new ImageIcon("img/character/rabbitFont.png"),
 								new ImageIcon("img/character/rabbitback.png"),
 								new ImageIcon("img/character/rabbitleft.png"),
 								new ImageIcon("img/character/rabbitright.png"),
 								new ImageIcon("img/character/rabbitdie.png"));
-						ca1P = new CharacterAbility1P(3, 2, 1, 1);
 					} else if (e.getButton() == MouseEvent.BUTTON3) {
 						ch1.setIcon(chCat);
 						ch2.setIcon(chRabbitPick);
 						ch3.setIcon(chBear);
 						ch4.setIcon(chAstronaut);
-						ci2P = new Character2P(new ImageIcon("img/character/rabbitleftFont.png"),
+						ci2P = new Character(new ImageIcon("img/character/rabbitleftFont.png"),
 								new ImageIcon("img/character/rabbitback.png"),
 								new ImageIcon("img/character/rabbitleft.png"),
 								new ImageIcon("img/character/rabbitright.png"),
 								new ImageIcon("img/character/rabbitdie.png"));
-						ca2P = new CharacterAbility2P(3, 2, 1, 1);
 					}
 
 				}
@@ -180,23 +163,21 @@ class CharacterTest1 extends JFrame {
 						ch2.setIcon(chRabbit);
 						ch3.setIcon(chBearPick);
 						ch4.setIcon(chAstronaut);
-						ci1P = new Character1P(new ImageIcon("img/character/bearFont.png"),
+						ci1P = new Character(new ImageIcon("img/character/bearFont.png"),
 								new ImageIcon("img/character/bearback.png"),
 								new ImageIcon("img/character/bearleft.png"),
 								new ImageIcon("img/character/bearright.png"),
 								new ImageIcon("img/character/beardie.png"));
-						ca1P = new CharacterAbility1P(3, 1, 1, 2);
 					} else if (e.getButton() == MouseEvent.BUTTON3) {
 						ch1.setIcon(chCat);
 						ch2.setIcon(chRabbit);
 						ch3.setIcon(chBearPick);
 						ch4.setIcon(chAstronaut);
-						ci2P = new Character2P(new ImageIcon("img/character/bearFont.png"),
+						ci2P = new Character(new ImageIcon("img/character/bearFont.png"),
 								new ImageIcon("img/character/bearback.png"),
 								new ImageIcon("img/character/bearleft.png"),
 								new ImageIcon("img/character/bearright.png"),
 								new ImageIcon("img/character/beardie.png"));
-						ca2P = new CharacterAbility2P(3, 1, 1, 2);
 					}
 
 				}
@@ -217,23 +198,21 @@ class CharacterTest1 extends JFrame {
 						ch2.setIcon(chRabbit);
 						ch3.setIcon(chBear);
 						ch4.setIcon(chAstronautPick);
-						ci1P = new Character1P(new ImageIcon("img/character/astronautFont.png"),
+						ci1P = new Character(new ImageIcon("img/character/astronautFont.png"),
 								new ImageIcon("img/character/astronautback.png"),
 								new ImageIcon("img/character/astronautleft.png"),
 								new ImageIcon("img/character/astronautright.png"),
 								new ImageIcon("img/character/astronautdie.png"));
-						ca1P = new CharacterAbility1P(4, 1, 1, 1);
 					} else if (e.getButton() == MouseEvent.BUTTON3) {
 						ch1.setIcon(chCat);
 						ch2.setIcon(chRabbit);
 						ch3.setIcon(chBear);
 						ch4.setIcon(chAstronautPick);
-						ci2P = new Character2P(new ImageIcon("img/character/astronautFont.png"),
+						ci2P = new Character(new ImageIcon("img/character/astronautFont.png"),
 								new ImageIcon("img/character/astronautback.png"),
 								new ImageIcon("img/character/astronautleft.png"),
 								new ImageIcon("img/character/astronautright.png"),
 								new ImageIcon("img/character/astronautdie.png"));
-						ca2P = new CharacterAbility2P(4, 1, 1, 1);
 					}
 
 				}

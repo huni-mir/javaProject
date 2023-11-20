@@ -7,8 +7,8 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import model.CharacterAbility1P;
-import model.Character1P;
+
+import model.Character;
 
 public class Standby extends JPanel {
 
@@ -36,12 +36,10 @@ public class Standby extends JPanel {
 	private JButton StartBtn;
 
 	// 게임에서 사용할 캐릭터 이미지들을 담을 오브젝트
-	private Character1P ci1P;
-	private Character1P ci2P;
-	private CharacterAbility1P ca1P;
-	private CharacterAbility1P ca2P;
+	private Character ci1P;
+	private Character ci2P;
 
-	public Character1P getCi1P() {
+	public Character getCi1P() {
 		return ci1P;
 	}
 
@@ -68,18 +66,17 @@ public class Standby extends JPanel {
 					ch2.setIcon(chRabbit);
 					ch3.setIcon(chBear);
 					ch4.setIcon(chAstronaut);
-					ci1P = new Character1P(new ImageIcon("img/character/catFont.png"),
-							new ImageIcon("img/character/catback.png"), new ImageIcon("img/character/catleft.png"),
-							new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/catdie.png"));
-
-				} else if (e.getButton() == MouseEvent.BUTTON3) {
+					ci1P = new Character(new ImageIcon("img/character/catFont.png"), new ImageIcon("img/character/catback.png"),
+							new ImageIcon("img/character/catleft.png"), new ImageIcon("img/character/catright.png"),
+							new ImageIcon("img/character/catdie.png"));
+				}else if(e.getButton() == MouseEvent.BUTTON3) {
 					ch1.setIcon(chCatPick);
 					ch2.setIcon(chRabbit);
 					ch3.setIcon(chBear);
 					ch4.setIcon(chAstronaut);
-					ci2P = new Character1P(new ImageIcon("img/character/catFont.png"),
-							new ImageIcon("img/character/catback.png"), new ImageIcon("img/character/catleft.png"),
-							new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/catdie.png"));
+					ci2P = new Character(new ImageIcon("img/character/catFont.png"), new ImageIcon("img/character/catback.png"),
+							new ImageIcon("img/character/catleft.png"), new ImageIcon("img/character/catright.png"),
+							new ImageIcon("img/character/catdie.png"));
 				}
 
 			}
@@ -95,22 +92,19 @@ public class Standby extends JPanel {
 					ch2.setIcon(chRabbitPick);
 					ch3.setIcon(chBear);
 					ch4.setIcon(chAstronaut);
-					ci1P = new Character1P(new ImageIcon("img/character/rabbitFont.png"),
-							new ImageIcon("img/character/rabbitback.png"),
-							new ImageIcon("img/character/rabbitleft.png"),
-							new ImageIcon("img/character/rabbitright.png"),
+					ci1P = new Character(new ImageIcon("img/character/rabbitFont.png"), new ImageIcon("img/character/rabbitback.png"),
+							new ImageIcon("img/character/rabbitleft.png"), new ImageIcon("img/character/rabbitright.png"),
 							new ImageIcon("img/character/rabbitdie.png"));
-				} else if (e.getButton() == MouseEvent.BUTTON3) {
+				}else if(e.getButton() == MouseEvent.BUTTON3) {
 					ch1.setIcon(chCat);
 					ch2.setIcon(chRabbitPick);
 					ch3.setIcon(chBear);
 					ch4.setIcon(chAstronaut);
-					ci2P = new Character1P(new ImageIcon("img/character/rabbitleftFont.png"),
-							new ImageIcon("img/character/rabbitback.png"),
-							new ImageIcon("img/character/rabbitleft.png"),
-							new ImageIcon("img/character/rabbitright.png"),
+					ci2P = new Character(new ImageIcon("img/character/rabbitleftFont.png"), new ImageIcon("img/character/rabbitback.png"),
+							new ImageIcon("img/character/rabbitleft.png"), new ImageIcon("img/character/rabbitright.png"),
 							new ImageIcon("img/character/rabbitdie.png"));
 				}
+
 
 			}
 		});
@@ -125,18 +119,19 @@ public class Standby extends JPanel {
 					ch2.setIcon(chRabbit);
 					ch3.setIcon(chBearPick);
 					ch4.setIcon(chAstronaut);
-					ci1P = new Character1P(new ImageIcon("img/character/bearFont.png"),
-							new ImageIcon("img/character/bearback.png"), new ImageIcon("img/character/bearleft.png"),
-							new ImageIcon("img/character/bearright.png"), new ImageIcon("img/character/beardie.png"));
-				} else if (e.getButton() == MouseEvent.BUTTON3) {
+					ci1P = new Character(new ImageIcon("img/character/bearFont.png"), new ImageIcon("img/character/bearback.png"),
+							new ImageIcon("img/character/bearleft.png"), new ImageIcon("img/character/bearright.png"),
+							new ImageIcon("img/character/beardie.png"));
+				}else if(e.getButton() == MouseEvent.BUTTON3) {
 					ch1.setIcon(chCat);
 					ch2.setIcon(chRabbit);
 					ch3.setIcon(chBearPick);
 					ch4.setIcon(chAstronaut);
-					ci2P = new Character1P(new ImageIcon("img/character/bearFont.png"),
-							new ImageIcon("img/character/bearback.png"), new ImageIcon("img/character/bearleft.png"),
-							new ImageIcon("img/character/bearright.png"), new ImageIcon("img/character/beardie.png"));
+					ci2P = new Character(new ImageIcon("img/character/bearFont.png"), new ImageIcon("img/character/bearback.png"),
+							new ImageIcon("img/character/bearleft.png"), new ImageIcon("img/character/bearright.png"),
+							new ImageIcon("img/character/beardie.png"));
 				}
+
 
 			}
 		});
@@ -151,22 +146,19 @@ public class Standby extends JPanel {
 					ch2.setIcon(chRabbit);
 					ch3.setIcon(chBear);
 					ch4.setIcon(chAstronautPick);
-					ci1P = new Character1P(new ImageIcon("img/character/astronautFont.png"),
-							new ImageIcon("img/character/astronautback.png"),
-							new ImageIcon("img/character/astronautleft.png"),
-							new ImageIcon("img/character/astronautright.png"),
+					ci1P = new Character(new ImageIcon("img/character/astronautFont.png"), new ImageIcon("img/character/astronautback.png"),
+							new ImageIcon("img/character/astronautleft.png"), new ImageIcon("img/character/astronautright.png"),
 							new ImageIcon("img/character/astronautdie.png"));
-				} else if (e.getButton() == MouseEvent.BUTTON3) {
+				}else if(e.getButton() == MouseEvent.BUTTON3) {
 					ch1.setIcon(chCat);
 					ch2.setIcon(chRabbit);
 					ch3.setIcon(chBear);
 					ch4.setIcon(chAstronautPick);
-					ci2P = new Character1P(new ImageIcon("img/character/astronautFont.png"),
-							new ImageIcon("img/character/astronautback.png"),
-							new ImageIcon("img/character/astronautleft.png"),
-							new ImageIcon("img/character/astronautright.png"),
+					ci2P = new Character(new ImageIcon("img/character/astronautFont.png"), new ImageIcon("img/character/astronautback.png"),
+							new ImageIcon("img/character/astronautleft.png"), new ImageIcon("img/character/astronautright.png"),
 							new ImageIcon("img/character/astronautdie.png"));
 				}
+
 
 			}
 		});
