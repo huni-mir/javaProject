@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.*;
-import model.Character1P;
 
 class CharacterTest1 extends JFrame {
 	public CharacterTest1() {
@@ -68,12 +67,19 @@ class CharacterTest1 extends JFrame {
 		private CharacterAbility1P ca1P;
 		private CharacterAbility2P ca2P;
 
-		public Character1P getCi1P() {
+		public Character1P getci1P() {
 			return ci1P;
 		}
+		public Character2P getci2P() {
+			return ci2P;
+		}
 
-		public CharacterAbility1P getCa1P() {
+
+		public CharacterAbility1P getca1P() {
 			return ca1P;
+		}
+		public CharacterAbility2P getca2P() {
+			return ca2P;
 		}
 
 		public GameMap(Object o) {
