@@ -27,7 +27,7 @@ public class Intro extends JPanel {
 	public Intro(Object o) { // 리스너 추가를 위해서 Object o 인자 추가
 		setLayout(null);
 		StartBtn = new JButton(startIc);
-		StartBtn.setName("StartBtn");
+		StartBtn.setName("FirstStartBtn");
 		ExplainBtn = new JButton(explainIc);
 		ExplainBtn.setName("ExplainBtn");
 		ExitBtn = new JButton(exitIc);
