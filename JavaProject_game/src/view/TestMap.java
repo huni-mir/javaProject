@@ -150,12 +150,34 @@ public class TestMap extends JFrame {
 		      
 		   }
 		 
-		 public void ItemOptions() {
+		 public void ItemOptions1() {
 		        for (int i = 0; i < itemlist.size(); i++) {
 		            JLabel currentItem = itemlist.get(i);
 
 		            if ((char1X >= currentItem.getX() - 20 && char1X <= currentItem.getX() + 10)
 		                    && (char1Y >= currentItem.getY() - 10 && char1Y <= currentItem.getY() + 30)) {
+		                currentItem.setIcon(null);
+
+		                item3 = item2[random.nextInt(4)];
+		                itemLabel = new JLabel(item3);
+		                itemLabel.setLocation(currentItem.getX(), currentItem.getY());
+		                itemLabel.setSize(40, 40);
+		                add(itemLabel);
+		                itemlist.add(itemLabel);
+		                itemlist.remove(i);
+		                
+		                // 아이템의 타입에 따라 다르게 동작
+		                String itemType = getItemType(item3); 
+		                ItemEffect(itemType); 
+		            }
+		        }
+		    }
+		 public void ItemOptions2() {
+		        for (int i = 0; i < itemlist.size(); i++) {
+		            JLabel currentItem = itemlist.get(i);
+
+		            if ((char2X >= currentItem.getX() - 20 && char2X <= currentItem.getX() + 10)
+		                    && (char2Y >= currentItem.getY() - 10 && char2Y <= currentItem.getY() + 30)) {
 		                currentItem.setIcon(null);
 
 		                item3 = item2[random.nextInt(4)];
