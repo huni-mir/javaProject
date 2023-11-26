@@ -79,10 +79,10 @@ public class TestMap extends JFrame {
 		   }
 		 public void enemyCheckLocation(int char2Bx,int char2By) {
 		      if((char1X>char2Bx-65 && char1X<char2Bx+60) &&(char1Y>char2By-40 &&char1Y<char2By+20)) {
-		         die = true;
+		         
 		      }
 		      else if((char1X>char2Bx-10 && char1X<char2Bx+50) &&(char1Y>char2By-80 &&char1Y<char2By+45)) {
-		         die = true;
+		         
 		      }
 		      // 풍선위치를 기준으로 동서남북
 		      for (int i = 0; i < item.size(); i++) {
