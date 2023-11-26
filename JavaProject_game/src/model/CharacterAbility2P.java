@@ -13,7 +13,7 @@ public class CharacterAbility2P { // 캐릭터 능력치
 	}
 
 	// 캐릭터 체력
-	private int char2P = 300; // 2P 체력
+	private int char2P = 3; // 2P 체력
 	// 캐릭터 능력
 	private int speed2P = 0; // 2P 스피드
 	private int bomb2P = 1; // 2P 폭탄 갯수
