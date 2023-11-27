@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import model.Character1P;
+
 public class TestMap extends JFrame {
 	 private JLabel contentPane;
 	 private ArrayList<JLabel> itemlist = new ArrayList<JLabel>();
@@ -77,6 +79,26 @@ public class TestMap extends JFrame {
 		         
 		      }
 		   }
+		 public void gameSet(Character1P ci) {
+
+
+				initCookieImg(ci); // 쿠키이미지를 세팅
+
+			}
+		 private void initCookieImg(Character1P ci) {
+			    // 쿠키 이미지 아이콘들
+			    font1P = ci.getFont1P(); // 정면 모션
+			    back1P = ci.getBack1P(); // 뒷면 모션
+			    left1P = ci.getLeft1P(); // 왼쪽 모션
+			    right1P = ci.getRight1P(); // 오른쪽 모션
+			    dieimg1P = ci.getDieimg1P(); // 죽음 모션
+			}
+			private ImageIcon font1P; // 정면
+			private ImageIcon back1P; // 뒷면
+			private ImageIcon left1P; // 왼쪽
+			private ImageIcon right1P;// 오른쪽
+			private ImageIcon dieimg1P; // 죽음
+
 		 public void enemyCheckLocation(int char2Bx,int char2By) {
 		      if((char1X>char2Bx-65 && char1X<char2Bx+60) &&(char1Y>char2By-40 &&char1Y<char2By+20)) {
 		         
@@ -263,6 +285,7 @@ public class TestMap extends JFrame {
 		private GameMap() {
 			setLayout(null);
 			Beullog beullog = new Beullog(16, 12);
+			
 			for (int i = 0; i < beullog.size; i++) {
 				for (int j = 0; j < beullog.size1; j++) {
 					beullog.map[i][j] = "1";
