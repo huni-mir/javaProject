@@ -1,6 +1,7 @@
 package controlller;
 
 import javax.swing.*;
+import view.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -58,6 +59,7 @@ public class Character_Move extends JPanel implements KeyListener {
     private void processInputs() {
     	//1p
     	if (char1Key[KeyEvent.VK_W]) {
+    		font1Label.setLocation(font1Label.getX(),font1Label.getY()-10);
             char1y -= 10; // 위로 이동
         }
         if (char1Key[KeyEvent.VK_A]) {

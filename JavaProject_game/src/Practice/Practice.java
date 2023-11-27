@@ -73,6 +73,7 @@ public class Practice extends Listener {
 				standby.setVisible(false);
 				gameMap.setVisible(true);
 				gameMap.gameSet(standby.getci1P(),standby.getci2P(),standby.getca1P(),standby.getca2P());
+				gameMap.setFocusable(true);
 			}
 		}
 	}

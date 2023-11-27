@@ -12,6 +12,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
+import controlller.*;
 
 class Beullog extends JPanel {
 	int size;
