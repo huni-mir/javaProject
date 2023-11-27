@@ -76,21 +76,7 @@ public class GameMap extends JPanel {
 	int char2Y = 750;
 	JLabel itemLabel;
 	
-	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
-			CharacterAbility2P getca2p) {
-		charCi1P(getci1p);
-		charCi2P(getci2p);
-		charCa1P(getca1p);
-		charCa2P(getca2p);
-		
-		JLabel font1PLabel = new JLabel(new ImageIcon(font1P.getImage()));
-		font1PLabel.setBounds(75, 50, 73, 100);
-		add(font1PLabel);
-		
-		JLabel font2PLabel = new JLabel(new ImageIcon(font2P.getImage()));
-		font2PLabel.setBounds(1050, 725, 73, 100);
-		add(font2PLabel);
-	}
+	
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // 화면을 비운다
@@ -154,6 +140,21 @@ public class GameMap extends JPanel {
 		}
 	}
 
+	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
+			CharacterAbility2P getca2p) {
+		charCi1P(getci1p);
+		charCi2P(getci2p);
+		charCa1P(getca1p);
+		charCa2P(getca2p);
+		
+		JLabel font1PLabel = new JLabel(new ImageIcon(font1P.getImage()));
+		font1PLabel.setBounds(75, 50, 73, 100);
+		add(font1PLabel);
+		
+		JLabel font2PLabel = new JLabel(new ImageIcon(font2P.getImage()));
+		font2PLabel.setBounds(1050, 725, 73, 100);
+		add(font2PLabel);
+	}
 	private void charCa1P(CharacterAbility1P getca1p) {
 		char1P = getca1p.getChar1P(); 
 		speed1P = getca1p.getSpeed1P(); 
