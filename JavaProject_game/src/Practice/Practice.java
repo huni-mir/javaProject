@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import view.*;
+import model.*;
 
 public class Practice extends Listener {
 	private JFrame frame = new JFrame(); // 창을 띄우기 위한 프레임
@@ -13,7 +14,11 @@ public class Practice extends Listener {
 	private Explain explain; // 설명 패널
 	private Standby standby; // 캐릭터 선택 패널
 	private GameMap gameMap; // 게임 맵 패널
-
+	private Character1P ci1p;
+	private Character2P ci2p;
+	private	CharacterAbility1P ca1P;
+	private CharacterAbility2P ca2P;
+	
 	public Practice() { // 프레임 영역
 		intro = new Intro(this);
 		explain = new Explain(this);
@@ -64,8 +69,15 @@ public class Practice extends Listener {
 			intro.setVisible(true);
 		}
 		else if (btn.getName().equals("StartBtn")) { // 스탠바이에서 시작 버튼 누를 시
-			standby.setVisible(false);
-			gameMap.setVisible(true);
+			
+			if (Standby.getCi1P() == null) {
+				JOptionPane.showMessageDialog(null, "1P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
+			}else if(Standby.getCi2P() == null) {
+				JOptionPane.showMessageDialog(null, "2P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
+			}else {
+				standby.setVisible(false);
+				gameMap.setVisible(true);					
+			}
 		}
 	}
 

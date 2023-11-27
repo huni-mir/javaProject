@@ -66,24 +66,24 @@ public class Standby extends JPanel {
 	private JButton StartBtn;
 
 	// 게임에서 사용할 캐릭터 이미지들을 담을 오브젝트
-	private Character1P ci1P;
-	private Character2P ci2P;
+	private static Character1P ci1P;
+	private static Character2P ci2P;
 
 	private CharacterAbility1P ca1P;
 	private CharacterAbility2P ca2P;
 
-	public Character1P getci1P() {
+	public static Character1P getCi1P() {
 		return ci1P;
 	}
-	public Character2P getci2P() {
+	public static Character2P getCi2P() {
 		return ci2P;
 	}
 
 
-	public CharacterAbility1P getca1P() {
+	public CharacterAbility1P getCa1P() {
 		return ca1P;
 	}
-	public CharacterAbility2P getca2P() {
+	public CharacterAbility2P getCa2P() {
 		return ca2P;
 	}
 	
