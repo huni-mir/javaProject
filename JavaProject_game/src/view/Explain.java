@@ -1,5 +1,6 @@
 package view;
 
+<<<<<<< Updated upstream
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -32,3 +33,8 @@ public class Explain extends JPanel {
 		backBtn.setFocusPainted(false);
 	}
 }
+=======
+public class Explain {
+
+}
+>>>>>>> Stashed changes

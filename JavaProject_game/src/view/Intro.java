@@ -32,6 +32,7 @@ public class Intro extends JPanel {
 		ExplainBtn.setName("ExplainBtn");
 		ExitBtn = new JButton(exitIc);
 		ExitBtn.setName("ExitBtn");
+<<<<<<< Updated upstream
 
 		StartBtn.addActionListener((ActionListener) o);
 		ExplainBtn.addActionListener((ActionListener) o);
@@ -41,6 +42,30 @@ public class Intro extends JPanel {
 		ExplainBtn.setBounds(625, 646, 351, 95);
 		ExitBtn.setBounds(625, 771, 351, 95);
 
+=======
+		StartBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton start = (JButton)o.getSource();
+				//캐릭터 고르는 화면으로 이동
+			}
+		});
+		ExplainBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton explain = (JButton)o.getSource();
+				//게임 설명 패널
+			}
+		});
+		ExitBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				JButton exit = (JButton)o.getSource();
+				System.exit(0);
+
+			}
+		});
+		StartBtn.setBounds(620, 521, 351, 95);
+		ExplainBtn.setBounds(620, 646, 351, 95);
+		ExitBtn.setBounds(620, 771, 351, 95);
+>>>>>>> Stashed changes
 		add(StartBtn);
 		add(ExplainBtn);
 		add(ExitBtn);
