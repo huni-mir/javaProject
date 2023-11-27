@@ -68,12 +68,12 @@ public class Practice extends Listener {
 				JOptionPane.showMessageDialog(null, "1P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
 			} else if (standby.getci2P() == null) {
 				JOptionPane.showMessageDialog(null, "2P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
-			}else{
-				gameMap.requestFocus(); 
+			}else {
 				standby.setVisible(false);
 				gameMap.setVisible(true);
-				gameMap.gameSet(standby.getci1P(),standby.getci2P(),standby.getca1P(),standby.getca2P());
+				gameMap.requestFocus();
 				gameMap.setFocusable(true);
+				gameMap.gameSet(standby.getci1P(),standby.getci2P(),standby.getca1P(),standby.getca2P());
 			}
 		}
 	}

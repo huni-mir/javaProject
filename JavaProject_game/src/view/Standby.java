@@ -221,7 +221,7 @@ public class Standby extends JPanel {
 					view2p.setBounds(1175, 320, 325, 450);
 					add(view2p);
 					
-					ci2P = new Character2P(new ImageIcon("img/character/rabbitleftFont.png"),
+					ci2P = new Character2P(new ImageIcon("img/character/rabbitFont.png"),
 							new ImageIcon("img/character/rabbitback.png"),
 							new ImageIcon("img/character/rabbitleft.png"),
 							new ImageIcon("img/character/rabbitright.png"),

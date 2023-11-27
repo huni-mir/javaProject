@@ -60,6 +60,7 @@ public class GameMap extends JPanel {
 	private ArrayList<JLabel> itemlist = new ArrayList<JLabel>();
 	private ImageIcon[] item2 = { new ImageIcon("img/speed_up.png"), new ImageIcon("img/range_up.png"),
 			new ImageIcon("img/heart_up.png"), new ImageIcon("img/bomb_up.png"), null };
+	
 	Random random = new Random();
 	ImageIcon item3;
 	String move;
@@ -74,11 +75,26 @@ public class GameMap extends JPanel {
 	int char2X = 1050;
 	int char2Y = 750;
 	JLabel itemLabel;
+	
+	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
+			CharacterAbility2P getca2p) {
+		charCi1P(getci1p);
+		charCi2P(getci2p);
+		charCa1P(getca1p);
+		charCa2P(getca2p);
+		
+		JLabel font1PLabel = new JLabel(new ImageIcon(font1P.getImage()));
+		font1PLabel.setBounds(75, 50, 73, 100);
+		add(font1PLabel);
+		
+		JLabel font2PLabel = new JLabel(new ImageIcon(font2P.getImage()));
+		font2PLabel.setBounds(1050, 725, 73, 100);
+		add(font2PLabel);
+	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // 화면을 비운다
 		g.drawImage(MainGame.getImage(), 0, 0, null);
-
 	}
 
 	public GameMap() {
@@ -134,34 +150,21 @@ public class GameMap extends JPanel {
 					}
 				}
 			}
-
+			
 		}
 	}
 
-	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
-			CharacterAbility2P getca2p) {
-		charCi1P(getci1p);
-		charCi2P(getci2p);
-		charCa1P(getca1p);
-		charCa2P(getca2p);	
-		JLabel font1PLabel = new JLabel(new ImageIcon(font1P.getImage()));
-		 add(font1PLabel);
-		 font1PLabel.setBounds(75,75, 75, 105);
-		 JLabel font2PLabel = new JLabel(new ImageIcon(font2P.getImage()));
-		 add(font2PLabel);
-		 font2PLabel.setBounds(1050,750, 75, 85);
-	}
 	private void charCa1P(CharacterAbility1P getca1p) {
 		char1P = getca1p.getChar1P(); 
 		speed1P = getca1p.getSpeed1P(); 
 		range1P = getca1p.getRange1P(); 
 	}
+	
 	private void charCa2P(CharacterAbility2P getca2p) {
 		char2P = getca2p.getChar2P(); 
 		speed2P = getca2p.getSpeed2P(); 
 		range2P = getca2p.getRange2P(); 
 	}
-
 
 	private void charCi1P(Character1P getci1p) {
 		font1P = getci1p.getFont1P(); // 
@@ -178,6 +181,5 @@ public class GameMap extends JPanel {
 		right2P = getci2p.getRight2P(); //
 		dieimg2P = getci2p.getDieimg2P(); // 
 	}
-
 
 }
