@@ -66,8 +66,8 @@ public class Standby extends JPanel {
 	private JButton StartBtn;
 
 	// 게임에서 사용할 캐릭터 이미지들을 담을 오브젝트
-	private Character1P ci1P;
-	private Character2P ci2P;
+	Character1P ci1P;
+	Character2P ci2P;
 
 	private CharacterAbility1P ca1P;
 	private CharacterAbility2P ca2P;

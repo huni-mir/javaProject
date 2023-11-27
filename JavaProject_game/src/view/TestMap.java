@@ -4,6 +4,8 @@ import java.awt.*;
 
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
@@ -13,11 +15,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import view.*;
 
 import model.Character1P;
 
 public class TestMap extends JFrame {
 	 private JLabel contentPane;
+	
+	 
 	 private ArrayList<JLabel> itemlist = new ArrayList<JLabel>();
 	public TestMap() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,6 +57,7 @@ public class TestMap extends JFrame {
 		Random random = new Random();
 		ImageIcon item3;
 		boolean die = false;
+		
 		String move;
 		String shape;
 		int x;
@@ -63,6 +69,7 @@ public class TestMap extends JFrame {
 
 		int char2X = 1050;
 		int char2Y = 750;
+		
 		JLabel itemLabel;
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g); // 화면을 비운다
@@ -92,6 +99,7 @@ public class TestMap extends JFrame {
 			    left1P = ci.getLeft1P(); // 왼쪽 모션
 			    right1P = ci.getRight1P(); // 오른쪽 모션
 			    dieimg1P = ci.getDieimg1P(); // 죽음 모션
+			    
 			}
 			private ImageIcon font1P; // 정면
 			private ImageIcon back1P; // 뒷면
@@ -99,7 +107,7 @@ public class TestMap extends JFrame {
 			private ImageIcon right1P;// 오른쪽
 			private ImageIcon dieimg1P; // 죽음
 
-		 public void enemyCheckLocation(int char2Bx,int char2By) {
+		 public void char2CheckLocation(int char2Bx,int char2By) {//enemyCheckLocation
 		      if((char1X>char2Bx-65 && char1X<char2Bx+60) &&(char1Y>char2By-40 &&char1Y<char2By+20)) {
 		         
 		      }
@@ -344,6 +352,96 @@ public class TestMap extends JFrame {
 				}
 			}
 
+		}
+		public class Character_Move extends JPanel implements KeyListener {
+		    private boolean[] char1Key = new boolean[256];
+		    private boolean[] char2Key = new boolean[256];
+		    private int char1x = 0;
+		    private int char1y = 0;
+		    private int char2x = 0;
+		    private int char2y = 0;
+		    
+		    
+		    
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        
+		    }
+		    
+		    @Override
+		    public void keyPressed(KeyEvent e) {
+		        int keyCode = e.getKeyCode();
+
+		        // 1p
+		        if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_A ||
+		            keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D ||
+		            keyCode == KeyEvent.VK_SHIFT) {
+		            char1Key[keyCode] = true;
+		        }
+
+		        // 2p
+		        else if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN ||
+		                 keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_RIGHT ||
+		                 keyCode == KeyEvent.VK_CONTROL) {
+		            char2Key[keyCode] = true;
+		        }
+
+		        // 여기서 각 플레이어의 입력에 따른 게임 로직을 수행
+		        processInputs();
+		    }
+
+		    @Override
+		    public void keyReleased(KeyEvent e) {
+		        int keyCode = e.getKeyCode();   
+		        if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_A ||
+		            keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D ) {
+		            char1Key[keyCode] = false;
+		            // 1p
+		        }
+		        else if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN ||
+		                 keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_RIGHT) {
+		            char2Key[keyCode] = false;
+		            //2p
+		        }
+		        processInputs();
+		    }
+
+		    private void processInputs() {
+		    	//1p
+		    	if (char1Key[KeyEvent.VK_W]) {
+		            char1y -= 10; // 위로 이동
+		        }
+		        if (char1Key[KeyEvent.VK_A]) {
+		            char1x -= 10; // 왼쪽으로 이동
+		        }
+		        if (char1Key[KeyEvent.VK_S]) {
+		            char1y += 10; // 아래로 이동
+		        }
+		        if (char1Key[KeyEvent.VK_D]) {
+		            char1x += 10; // 오른쪽으로 이동
+		        }
+		        if (char1Key[KeyEvent.VK_SHIFT]) {
+		        	new Thread(one).start(); //one 스레드 dropBomb
+		        }
+
+		        //2p
+		        if (char2Key[KeyEvent.VK_UP]) {
+		            char2y -= 10; // 위로 이동
+		        }
+		        if (char2Key[KeyEvent.VK_LEFT]) {
+		            char2x -= 10; // 왼쪽으로 이동
+		        }
+		        if (char2Key[KeyEvent.VK_DOWN]) {
+		            char2y += 10; // 아래로 이동
+		        }
+		        if (char2Key[KeyEvent.VK_RIGHT]) {
+		            char2x += 10; // 오른쪽으로 이동
+		        }
+		        if (char2Key[KeyEvent.VK_CONTROL]) {
+		        	new Thread(two).start();
+		        }
+		    }
+		    //thread dropBomp 추가 해야됨
 		}
 	}
 
