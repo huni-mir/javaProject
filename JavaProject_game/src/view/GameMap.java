@@ -143,6 +143,12 @@ public class GameMap extends JPanel {
 		charCi2P(getci2p);
 		charCa1P(getca1p);
 		charCa2P(getca2p);	
+		JLabel font1PLabel = new JLabel(new ImageIcon(font1P.getImage()));
+		 add(font1PLabel);
+		 font1PLabel.setBounds(75,75, 75, 105);
+		 JLabel font2PLabel = new JLabel(new ImageIcon(font2P.getImage()));
+		 add(font2PLabel);
+		 font2PLabel.setBounds(1050,750, 75, 85);
 	}
 	private void charCa1P(CharacterAbility1P getca1p) {
 		char1P = getca1p.getChar1P(); 

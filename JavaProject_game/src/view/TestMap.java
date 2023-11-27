@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 import view.*;
 
 import model.Character1P;
+import model.Character2P;
+import model.CharacterAbility1P;
+import model.CharacterAbility2P;
 
 public class TestMap extends JFrame {
 	 private JLabel contentPane;
@@ -70,6 +73,34 @@ public class TestMap extends JFrame {
 		int char2X = 1050;
 		int char2Y = 750;
 		
+		
+		private ImageIcon font1P; // 정면
+	    private ImageIcon back1P; // 뒷면
+	    private ImageIcon left1P; // 왼쪽
+	    private ImageIcon right1P; // 오른쪽
+	    private ImageIcon dieimg1P; // 죽음
+	    
+	    private ImageIcon font2P; // 정면
+	    private ImageIcon back2P; // 뒷면
+	    private ImageIcon left2P; // 왼쪽
+	    private ImageIcon right2P; // 오른쪽
+	    private ImageIcon dieimg2P; // 죽음
+	    
+	    // 캐릭터 체력
+	    private int char1P; // 1P 체력
+	    // 캐릭터 능력
+	    private int speed1P; // 1P 스피드
+	    private int bomb1P; // 1P 폭탄 갯수
+	    private int range1P; // 1P 폭탄 범위
+	    
+	    // 캐릭터 체력
+	    private int char2P; // 2P 체력
+	    // 캐릭터 능력
+	    private int speed2P; // 2P 스피드
+	    private int bomb2P; // 2P 폭탄 갯수
+	    private int range2P; // 2P 폭탄 범위
+
+		
 		JLabel itemLabel;
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g); // 화면을 비운다
@@ -98,15 +129,9 @@ public class TestMap extends JFrame {
 			    back1P = ci.getBack1P(); // 뒷면 모션
 			    left1P = ci.getLeft1P(); // 왼쪽 모션
 			    right1P = ci.getRight1P(); // 오른쪽 모션
-			    dieimg1P = ci.getDieimg1P(); // 죽음 모션
-			    
+			    dieimg1P = ci.getDieimg1P(); // 죽음 모션 
 			}
-			private ImageIcon font1P; // 정면
-			private ImageIcon back1P; // 뒷면
-			private ImageIcon left1P; // 왼쪽
-			private ImageIcon right1P;// 오른쪽
-			private ImageIcon dieimg1P; // 죽음
-
+			
 		 public void char2CheckLocation(int char2Bx,int char2By) {//enemyCheckLocation
 		      if((char1X>char2Bx-65 && char1X<char2Bx+60) &&(char1Y>char2By-40 &&char1Y<char2By+20)) {
 		         
@@ -421,7 +446,7 @@ public class TestMap extends JFrame {
 		            char1x += 10; // 오른쪽으로 이동
 		        }
 		        if (char1Key[KeyEvent.VK_SHIFT]) {
-		        	new Thread(one).start(); //one 스레드 dropBomb
+		        	//new Thread(one).start(); //one 스레드 dropBomb
 		        }
 
 		        //2p
@@ -438,11 +463,49 @@ public class TestMap extends JFrame {
 		            char2x += 10; // 오른쪽으로 이동
 		        }
 		        if (char2Key[KeyEvent.VK_CONTROL]) {
-		        	new Thread(two).start();
+		        	//new Thread(two).start();
 		        }
 		    }
 		    //thread dropBomp 추가 해야됨
 		}
+		public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
+				CharacterAbility2P getca2p) {
+			charCi1P(getci1p);
+			charCi2P(getci2p);
+			charCa1P(getca1p);
+			charCa2P(getca2p);
+			 JLabel font1PLabel = new JLabel(new ImageIcon(font1P.getImage()));
+			 add(font1PLabel);
+			 font1PLabel.setBounds(75,75, 75, 75);
+		}
+		private void charCa1P(CharacterAbility1P getca1p) {
+			char1P = getca1p.getChar1P(); 
+			speed1P = getca1p.getSpeed1P(); 
+			range1P = getca1p.getRange1P(); 
+		}
+		private void charCa2P(CharacterAbility2P getca2p) {
+			char2P = getca2p.getChar2P(); 
+			speed2P = getca2p.getSpeed2P(); 
+			range2P = getca2p.getRange2P(); 
+		}
+
+
+		private void charCi1P(Character1P getci1p) {
+			font1P = getci1p.getFont1P(); // 
+			back1P = getci1p.getBack1P(); //
+			left1P = getci1p.getLeft1P(); //
+			right1P = getci1p.getRight1P(); //
+			dieimg1P = getci1p.getDieimg1P(); // 
+		}
+		
+		private void charCi2P(Character2P getci2p) {
+			font2P = getci2p.getFont2P(); // 
+			back2P = getci2p.getBack2P(); //
+			left2P = getci2p.getLeft2P(); //
+			right2P = getci2p.getRight2P(); //
+			dieimg2P = getci2p.getDieimg2P(); // 
+		}
+		
 	}
 
 	public static void main(String[] args) {
