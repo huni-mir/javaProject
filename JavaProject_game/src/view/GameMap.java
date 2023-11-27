@@ -1,6 +1,12 @@
 package view;
 
 import javax.swing.*;
+
+import model.Character1P;
+import model.Character2P;
+import model.CharacterAbility1P;
+import model.CharacterAbility2P;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -22,6 +28,31 @@ class Beullog extends JPanel {
 }
 
 public class GameMap extends JPanel {
+    private ImageIcon font1P; // 정면
+    private ImageIcon back1P; // 뒷면
+    private ImageIcon left1P; // 왼쪽
+    private ImageIcon right1P; // 오른쪽
+    private ImageIcon dieimg1P; // 죽음
+    
+    private ImageIcon font2P; // 정면
+    private ImageIcon back2P; // 뒷면
+    private ImageIcon left2P; // 왼쪽
+    private ImageIcon right2P; // 오른쪽
+    private ImageIcon dieimg2P; // 죽음
+    
+    // 캐릭터 체력
+    private int char1P; // 1P 체력
+    // 캐릭터 능력
+    private int speed1P; // 1P 스피드
+    private int bomb1P; // 1P 폭탄 갯수
+    private int range1P; // 1P 폭탄 범위
+    
+    // 캐릭터 체력
+    private int char2P; // 2P 체력
+    // 캐릭터 능력
+    private int speed2P; // 2P 스피드
+    private int bomb2P; // 2P 폭탄 갯수
+    private int range2P; // 2P 폭탄 범위
 
 	private ImageIcon MainGame = new ImageIcon("img/background/MainGame.png"); // 게임이미지
 	private Vector<JLabel> item = new Vector<JLabel>();
@@ -105,4 +136,41 @@ public class GameMap extends JPanel {
 
 		}
 	}
+
+	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
+			CharacterAbility2P getca2p) {
+		charCi1P(getci1p);
+		charCi2P(getci2p);
+		charCa1P(getca1p);
+		charCa2P(getca2p);	
+	}
+	private void charCa1P(CharacterAbility1P getca1p) {
+		char1P = getca1p.getChar1P(); 
+		speed1P = getca1p.getSpeed1P(); 
+		range1P = getca1p.getRange1P(); 
+	}
+	private void charCa2P(CharacterAbility2P getca2p) {
+		char2P = getca2p.getChar2P(); 
+		speed2P = getca2p.getSpeed2P(); 
+		range2P = getca2p.getRange2P(); 
+	}
+
+
+	private void charCi1P(Character1P getci1p) {
+		font1P = getci1p.getFont1P(); // 
+		back1P = getci1p.getBack1P(); //
+		left1P = getci1p.getLeft1P(); //
+		right1P = getci1p.getRight1P(); //
+		dieimg1P = getci1p.getDieimg1P(); // 
+	}
+	
+	private void charCi2P(Character2P getci2p) {
+		font2P = getci2p.getFont2P(); // 
+		back2P = getci2p.getBack2P(); //
+		left2P = getci2p.getLeft2P(); //
+		right2P = getci2p.getRight2P(); //
+		dieimg2P = getci2p.getDieimg2P(); // 
+	}
+
+
 }

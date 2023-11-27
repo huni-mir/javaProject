@@ -64,8 +64,16 @@ public class Practice extends Listener {
 			intro.setVisible(true);
 		}
 		else if (btn.getName().equals("StartBtn")) { // 스탠바이에서 시작 버튼 누를 시
-			standby.setVisible(false);
-			gameMap.setVisible(true);
+			if (standby.getci1P() == null) {
+				JOptionPane.showMessageDialog(null, "1P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
+			} else if (standby.getci2P() == null) {
+				JOptionPane.showMessageDialog(null, "2P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
+			}else{
+				gameMap.gameSet(standby.getci1P(),standby.getci2P(),standby.getca1P(),standby.getca2P());
+				gameMap.requestFocus(); 
+				standby.setVisible(false);
+				gameMap.setVisible(true);
+			}
 		}
 	}
 
