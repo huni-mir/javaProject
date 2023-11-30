@@ -12,10 +12,7 @@ public class Standby extends JPanel {
 		super.paintComponent(g); // 화면을 비운다
 
 		g.drawImage(MainGame.getImage(), 0, 0, null);
-
 	}
-	private ImageIcon back = new ImageIcon("img/button/back.png"); // 뒤로가기 버튼 이미지 주소
-	private JButton backBtn = new JButton(back);
 	
 	// 상단 캐릭터 선택 이미지 아이콘
 	private ImageIcon chCatProfile = new ImageIcon("img/character/catProfile.png");
@@ -24,8 +21,18 @@ public class Standby extends JPanel {
 	private ImageIcon chAstronautProfile = new ImageIcon("img/character/astronautProfile.png");
 
 	// 선택된 상단 캐릭터 이미지 아이콘
-	private ImageIcon pick1 = new ImageIcon("img/character/catProfile.png");
-	private ImageIcon pick2 = new ImageIcon("img/character/catProfile.png");
+	private ImageIcon pick1Ic = new ImageIcon("img/standby/flag1p.png");
+	private ImageIcon pick2Ic = new ImageIcon("img/standby/flag2p.png");
+	
+	private JLabel pick1 = new JLabel(pick1Ic);
+	private JLabel pick2 = new JLabel(pick2Ic);
+	
+	// 캐릭터 선택 마우스 이미지
+	private ImageIcon click1pIc = new ImageIcon("img/standby/click_1p.png");
+	private ImageIcon click2pIc = new ImageIcon("img/standby/click_2p.png");
+	
+	private JLabel click1p = new JLabel(click1pIc);
+	private JLabel click2p = new JLabel(click2pIc);
 
 	// 화면에 보여지는 캐릭터 전체 샷
 	private ImageIcon chCat = new ImageIcon("img/character/catView.png");
@@ -100,16 +107,15 @@ public class Standby extends JPanel {
 		StartBtn.setFocusPainted(false);
 		StartBtn.setRolloverIcon(startSelect);
 		
-		/*// 뒤로가기 버튼
-		backBtn.setName("backBtn");
-		backBtn.addActionListener((ActionListener) o);
-		backBtn.setBounds(44, 30, 69, 115);
-		add(backBtn);
-		backBtn.setBorderPainted(false);
-		backBtn.setContentAreaFilled(false);
-		backBtn.setFocusPainted(false);*/
+		click1p.setBounds(213, 153, 100, 149);
+		add(click1p);
+		click2p.setBounds(1286, 153, 100, 149);
+		add(click2p);
 		
 		// 선택한 캐릭터 겹쳐지지 않게 미리 세팅
+		add(pick1);
+		add(pick2);
+		
 		add(view1p);
 		add(view2p);
 		
@@ -124,10 +130,9 @@ public class Standby extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (e.getButton() == MouseEvent.BUTTON1) {
-					// ch1.setIcon(chCatPick1);
-					ch2.setIcon(chRabbitProfile);
-					ch3.setIcon(chBearProfile);
-					ch4.setIcon(chAstronautProfile);
+					remove(pick1);
+					pick1.setBounds(304, 30, 83, 87);
+					add(pick1);
 					
 					remove(view1p);
 					view1p = new JLabel(chCat);
@@ -141,10 +146,9 @@ public class Standby extends JPanel {
 							new ImageIcon("img/character/catdie.png"));
 					ca1P = new CharacterAbility1P(3, 1, 2, 1);
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					// ch1.setIcon(chCatPick2);
-					ch2.setIcon(chRabbitProfile);
-					ch3.setIcon(chBearProfile);
-					ch4.setIcon(chAstronautProfile);
+					remove(pick2);
+					pick2.setBounds(523, 93, 83, 87);
+					add(pick2);
 					
 					remove(view2p);
 					view2p = new JLabel(chCat);
@@ -159,7 +163,7 @@ public class Standby extends JPanel {
 					ca2P = new CharacterAbility2P(3, 1, 2, 1);
 				}
 				remove(statItem);
-				statItem.setBounds(588, 329, 75, 375);
+				statItem.setBounds(628, 329, 75, 375);
 				add(statItem);
 				
 				remove(stat1); remove(stat2); remove(stat3); remove(stat4);
@@ -168,10 +172,10 @@ public class Standby extends JPanel {
 				stat3 = new JLabel(statIc2);
 				stat4 = new JLabel(statIc1);
 				
-				stat1.setBounds(698, 340, 204, 54);
-				stat2.setBounds(698, 440, 204, 54);
-				stat3.setBounds(698, 540, 204, 54);
-				stat4.setBounds(698, 640, 204, 54);
+				stat1.setBounds(738, 340, 204, 54);
+				stat2.setBounds(738, 440, 204, 54);
+				stat3.setBounds(738, 540, 204, 54);
+				stat4.setBounds(738, 640, 204, 54);
 				
 				add(stat1); add(stat2); add(stat3); add(stat4);
 				
@@ -193,10 +197,9 @@ public class Standby extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (e.getButton() == MouseEvent.BUTTON1) {
-					ch1.setIcon(chCatProfile);
-					// ch2.setIcon(chRabbitPick1);
-					ch3.setIcon(chBearProfile);
-					ch4.setIcon(chAstronautProfile);
+					remove(pick1);
+					pick1.setBounds(534, 30, 83, 87);
+					add(pick1);
 					
 					remove(view1p);
 					view1p = new JLabel(chRabbit);
@@ -210,10 +213,9 @@ public class Standby extends JPanel {
 							new ImageIcon("img/character/rabbitdie.png"));
 					ca1P = new CharacterAbility1P(3, 2, 1, 1);
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					ch1.setIcon(chCatProfile);
-					// ch2.setIcon(chRabbitPick2);
-					ch3.setIcon(chBearProfile);
-					ch4.setIcon(chAstronautProfile);
+					remove(pick2);
+					pick2.setBounds(752, 93, 83, 87);
+					add(pick2);
 					
 					remove(view2p);
 					view2p = new JLabel(chRabbit);
@@ -229,7 +231,7 @@ public class Standby extends JPanel {
 				}
 				
 				remove(statItem);
-				statItem.setBounds(588, 329, 75, 375);
+				statItem.setBounds(628, 329, 75, 375);
 				add(statItem);
 				
 				remove(stat1); remove(stat2); remove(stat3); remove(stat4);
@@ -238,10 +240,10 @@ public class Standby extends JPanel {
 				stat3 = new JLabel(statIc1);
 				stat4 = new JLabel(statIc1);
 				
-				stat1.setBounds(698, 340, 204, 54);
-				stat2.setBounds(698, 440, 204, 54);
-				stat3.setBounds(698, 540, 204, 54);
-				stat4.setBounds(698, 640, 204, 54);
+				stat1.setBounds(738, 340, 204, 54);
+				stat2.setBounds(738, 440, 204, 54);
+				stat3.setBounds(738, 540, 204, 54);
+				stat4.setBounds(738, 640, 204, 54);
 				
 				add(stat1); add(stat2); add(stat3); add(stat4);
 				
@@ -262,10 +264,9 @@ public class Standby extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (e.getButton() == MouseEvent.BUTTON1) {
-					ch1.setIcon(chCatProfile);
-					ch2.setIcon(chRabbitProfile);
-					// ch3.setIcon(chBearPick1);
-					ch4.setIcon(chAstronautProfile);
+					remove(pick1);
+					pick1.setBounds(765, 30, 83, 87);
+					add(pick1);
 					
 					remove(view1p);
 					view1p = new JLabel(chBear);
@@ -279,10 +280,9 @@ public class Standby extends JPanel {
 							new ImageIcon("img/character/beardie.png"));
 					ca1P = new CharacterAbility1P(3, 1, 1, 2);
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					ch1.setIcon(chCatProfile);
-					ch2.setIcon(chRabbitProfile);
-					// ch3.setIcon(chBearPick2);
-					ch4.setIcon(chAstronautProfile);
+					remove(pick2);
+					pick2.setBounds(982, 93, 83, 87);
+					add(pick2);
 					
 					remove(view2p);
 					view2p = new JLabel(chBear);
@@ -297,7 +297,7 @@ public class Standby extends JPanel {
 					ca2P = new CharacterAbility2P(3, 1, 1, 2);
 				}
 				remove(statItem);
-				statItem.setBounds(588, 329, 75, 375);
+				statItem.setBounds(628, 329, 75, 375);
 				add(statItem);
 				
 				remove(stat1); remove(stat2); remove(stat3); remove(stat4);
@@ -306,10 +306,10 @@ public class Standby extends JPanel {
 				stat3 = new JLabel(statIc1);
 				stat4 = new JLabel(statIc2);
 				
-				stat1.setBounds(698, 340, 204, 54);
-				stat2.setBounds(698, 440, 204, 54);
-				stat3.setBounds(698, 540, 204, 54);
-				stat4.setBounds(698, 640, 204, 54);
+				stat1.setBounds(738, 340, 204, 54);
+				stat2.setBounds(738, 440, 204, 54);
+				stat3.setBounds(738, 540, 204, 54);
+				stat4.setBounds(738, 640, 204, 54);
 				
 				add(stat1); add(stat2); add(stat3); add(stat4);
 				
@@ -329,10 +329,9 @@ public class Standby extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (e.getButton() == MouseEvent.BUTTON1) {
-					ch1.setIcon(chCatProfile);
-					ch2.setIcon(chRabbitProfile);
-					ch3.setIcon(chBearProfile);
-					// ch4.setIcon(chAstronautPick1);
+					remove(pick1);
+					pick1.setBounds(995, 30, 83, 87);
+					add(pick1);
 					
 					remove(view1p);	// 기존 아바타 제거
 					view1p = new JLabel(chAstronaut);
@@ -346,10 +345,9 @@ public class Standby extends JPanel {
 							new ImageIcon("img/character/astronautdie.png"));
 					ca1P = new CharacterAbility1P(4, 1, 1, 1);
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					ch1.setIcon(chCatProfile);
-					ch2.setIcon(chRabbitProfile);
-					ch3.setIcon(chBearProfile);
-					// ch4.setIcon(chAstronautPick2);
+					remove(pick2);
+					pick2.setBounds(1213, 93, 83, 87);
+					add(pick2);
 					
 					remove(view2p);
 					view2p = new JLabel(chAstronaut);
@@ -364,7 +362,7 @@ public class Standby extends JPanel {
 					ca2P = new CharacterAbility2P(4, 1, 1, 1);
 				}
 				remove(statItem);
-				statItem.setBounds(588, 329, 75, 375);
+				statItem.setBounds(628, 329, 75, 375);
 				add(statItem);
 				
 				remove(stat1); remove(stat2); remove(stat3); remove(stat4);
@@ -373,10 +371,10 @@ public class Standby extends JPanel {
 				stat3 = new JLabel(statIc1);
 				stat4 = new JLabel(statIc1);
 				
-				stat1.setBounds(698, 340, 204, 54);
-				stat2.setBounds(698, 440, 204, 54);
-				stat3.setBounds(698, 540, 204, 54);
-				stat4.setBounds(698, 640, 204, 54);
+				stat1.setBounds(738, 340, 204, 54);
+				stat2.setBounds(738, 440, 204, 54);
+				stat3.setBounds(738, 540, 204, 54);
+				stat4.setBounds(738, 640, 204, 54);
 				
 				add(stat1); add(stat2); add(stat3); add(stat4);
 				
