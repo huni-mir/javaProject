@@ -642,18 +642,7 @@ public class adfefda {
 	      private BufferedReader reader;
 	      private PrintWriter writer;
 
-	      public GameThread() { //안봐도 댐
-	         //          
-	         try {
-	            socket = new Socket("localhost", 6000);
-	            writer = new PrintWriter(socket.getOutputStream(), true);
-	            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-	         } catch (Exception e) {
-	            e.printStackTrace();
-	         }
-
-	      }
+	   
 
 	      @Override
 	      public void run() {

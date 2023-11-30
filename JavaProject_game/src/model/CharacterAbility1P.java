@@ -2,11 +2,11 @@ package model;
 
 public class CharacterAbility1P {
     // 캐릭터 체력
-    private int char1P = 3; // 1P 체력
+    private int char1P = 0; // 1P 체력
     // 캐릭터 능력
     private int speed1P = 0; // 1P 스피드
-    private int bomb1P = 1; // 1P 폭탄 갯수
-    private int range1P = 1; // 1P 폭탄 범위
+    private int bomb1P = 0; // 1P 폭탄 갯수
+    private int range1P = 0; // 1P 폭탄 범위
 
     // 생성자
     public CharacterAbility1P() {
