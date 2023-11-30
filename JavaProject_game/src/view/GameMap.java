@@ -137,7 +137,7 @@ public class GameMap extends JPanel {
 				}
 			}
 			
-		}	
+		}
 	}
 
 	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
