@@ -28,7 +28,7 @@ class Beullog extends JPanel {
 	}
 }
 
-public class GameMap extends JPanel {
+public class GameMap2 extends JPanel {
     private ImageIcon font1P; // 정면
     private ImageIcon back1P; // 뒷면
     private ImageIcon left1P; // 왼쪽
@@ -83,7 +83,7 @@ public class GameMap extends JPanel {
 		g.drawImage(MainGame.getImage(), 0, 0, null);
 	}
 
-	public GameMap() {
+	public GameMap2() {
 		
 		
 		
@@ -143,24 +143,18 @@ public class GameMap extends JPanel {
 			
 		}
 	}
-	private JLabel char1p;
+
 	public void gameSet(Character1P getci1p, Character2P getci2p, CharacterAbility1P getca1p,
-            CharacterAbility2P getca2p) {
-setFocusable(true);
-charCi1P(getci1p);
-charCi2P(getci2p);
-charCa1P(getca1p);
-charCa2P(getca2p);
-char1p = new JLabel(new ImageIcon(font1P.getImage()));
-char1p.setBounds(75, 50, 73, 100);
-add(char1p);
-
-char1p.addKeyListener(new MykeyListener());
-char1p.setFocusable(true);
-char1p.requestFocusInWindow();
-
-
-
+			CharacterAbility2P getca2p) {
+		setFocusable(true);
+		charCi1P(getci1p);
+		charCi2P(getci2p);
+		charCa1P(getca1p);
+		charCa2P(getca2p);
+		initListener();  
+		JLabel char1p = new JLabel(new ImageIcon(font1P.getImage()));
+		char1p.setBounds(75, 50, 73, 100);
+		add(char1p);
 		
 		
 		
@@ -172,70 +166,6 @@ char1p.requestFocusInWindow();
 		
 		
 	}
-	class MykeyListener extends KeyAdapter {
-		private boolean[] char1Key = new boolean[256];
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-		    int keyCode = e.getKeyCode();
-
-		    if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_A ||
-		        keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D ||
-		        keyCode == KeyEvent.VK_SHIFT) {
-		        char1Key[keyCode] = true;
-		    }
-
-		    // 여기서 각 플레이어의 입력에 따른 게임 로직을 수행
-		    processInputs();
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-		    int keyCode = e.getKeyCode();
-		    if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_A ||
-		        keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D) {
-		        char1Key[keyCode] = false;
-		        // 1p
-		    }
-
-		    processInputs();
-		}
-
-		private void processInputs() {
-		    // 1p
-		    if (char1Key[KeyEvent.VK_W]) {
-		        char1p.setLocation(char1p.getX(), char1p.getY() - 10); // 위로 이동
-		    }
-		    if (char1Key[KeyEvent.VK_A]) {
-		        char1p.setLocation(char1p.getX() - 10, char1p.getY()); // 왼쪽으로 이동
-		    }
-		    if (char1Key[KeyEvent.VK_S]) {
-		        char1p.setLocation(char1p.getX(), char1p.getY() + 10); // 아래로 이동
-		    }
-		    if (char1Key[KeyEvent.VK_D]) {
-		        char1p.setLocation(char1p.getX() + 10, char1p.getY());
-		    }
-		    if (char1Key[KeyEvent.VK_SHIFT]) {
-		        // new Thread(one).start(); //one 스레드 dropBomb
-		    }
-		}
-		// thread dropBomp 추가 해야됨
-		}
-		/*public void keyPressed(KeyEvent e) {
-			int keyCode=e.getKeyCode();
-			switch(keyCode) {
-			case KeyEvent.VK_W:
-				 char1p.setLocation(char1p.getX(), char1p.getY() - 10);break;
-			case KeyEvent.VK_A:
-				 char1p.setLocation(char1p.getX() - 10, char1p.getY());break;
-			case KeyEvent.VK_S:
-				 char1p.setLocation(char1p.getX(), char1p.getY() + 10);break;
-			case KeyEvent.VK_D:
-				 char1p.setLocation(char1p.getX() + 10, char1p.getY());break;
-			}
-		}*/
-	
-
 	private void charCa1P(CharacterAbility1P getca1p) {
 		char1P = getca1p.getChar1P(); 
 		speed1P = getca1p.getSpeed1P(); 
@@ -263,7 +193,7 @@ char1p.requestFocusInWindow();
 		right2P = getci2p.getRight2P(); //
 		dieimg2P = getci2p.getDieimg2P(); // 
 	}
-	/*private void initListener() {
+	private void initListener() {
 		
 		addKeyListener(new KeyAdapter() { // 키 리스너 추가
 			private boolean[] char1Key = new boolean[256];
@@ -351,5 +281,5 @@ char1p.requestFocusInWindow();
 		setFocusable(true);
 		requestFocus();
 
-}*/
+}
 }

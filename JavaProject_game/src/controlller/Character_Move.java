@@ -59,7 +59,7 @@ public class Character_Move extends JPanel implements KeyListener {
     private void processInputs() {
     	//1p
     	if (char1Key[KeyEvent.VK_W]) {
-    		font1Label.setLocation(font1Label.getX(),font1Label.getY()-10);
+    		//font1Label.setLocation(font1Label.getX(),font1Label.getY()-10);
             char1y -= 10; // 위로 이동
         }
         if (char1Key[KeyEvent.VK_A]) {
@@ -72,7 +72,7 @@ public class Character_Move extends JPanel implements KeyListener {
             char1x += 10; // 오른쪽으로 이동
         }
         if (char1Key[KeyEvent.VK_SHIFT]) {
-        	new Thread(one).start(); //one 스레드 dropBomb
+        	//new Thread(one).start(); //one 스레드 dropBomb
         }
 
         //2p
@@ -89,7 +89,7 @@ public class Character_Move extends JPanel implements KeyListener {
             char2x += 10; // 오른쪽으로 이동
         }
         if (char2Key[KeyEvent.VK_CONTROL]) {
-        	new Thread(one).start();
+        	//new Thread(one).start();
         }
     }
     //thread dropBomp 추가 해야됨
