@@ -1,18 +1,20 @@
 package view;
 
-import javax.swing.*;
+import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Vector;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import model.Character1P;
 import model.Character2P;
 import model.CharacterAbility1P;
 import model.CharacterAbility2P;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Vector;
-import controlller.*;
 
 class Beullog extends JPanel {
 	int size;
@@ -75,6 +77,8 @@ public class GameMap extends JPanel {
 	int char2X = 1050;
 	int char2Y = 750;
 	JLabel itemLabel;
+
+	boolean check = true; // bomb
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // 화면을 비운다
@@ -219,7 +223,7 @@ public class GameMap extends JPanel {
 				char1p.setLocation(char1p.getX() + 10, char1p.getY());
 			}
 			if (char1Key[KeyEvent.VK_SHIFT]) {
-				// new Thread(one).start(); //one 스레드 dropBomb
+				new Thread(one).start(); // one 스레드 dropBomb
 			}
 			// 2p
 			if (char2Key[KeyEvent.VK_UP]) {
@@ -235,20 +239,98 @@ public class GameMap extends JPanel {
 				char2p.setLocation(char2p.getX() + 10, char2p.getY());
 			}
 			if (char2Key[KeyEvent.VK_CONTROL]) {
-				// new Thread(one).start();
+				new Thread(one).start();
 			}
 		}
-		// thread dropBomp 추가 해야됨
+
+		// 폭탄 드랍
+		public void BombDrop(int imgX, int imgY) {
+			x = imgX; // 현재 위치 변수 바꿔야됨
+			y = imgY; // 현재 위치 변수 바꿔야됨
+
+			Runnable runnable = new Runnable() {
+
+				@Override
+				public void run() {
+					JLabel bombLabel = new JLabel(new ImageIcon("img/bomb/bomb.png"));
+					
+					x = (x / 75) * 75;
+					y = (y / 75) * 75;
+
+					bombLabel.setSize(75, 75);
+					bombLabel.setLocation(x + 16, y + 5);
+					bombLabel.setVisible(true);
+					add(bombLabel);
+
+					int enemyBx = x + 16; // 2p
+					int enemyBy = y + 5; // 2p
+					try {
+						Thread.sleep(2000);
+						bombLabel.setVisible(false);
+
+						   
+						   
+						JLabel bc = new JLabel(new ImageIcon("img/bomb/bomb_explode.gif"));
+						JLabel bv = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
+						JLabel bh = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
+						JLabel bd = new JLabel(new ImageIcon("images/bdown.png"));
+						JLabel bl = new JLabel(new ImageIcon("images/bleft.png"));
+
+			               bc.setSize(75,75);
+			               bc.setLocation(enemyBx, enemyBy);
+			               bc.setVisible(true);
+			               add(bc);
+			               bv.setSize(75, 75);
+			               bv.setLocation(enemyBx, enemyBy - 40);
+			               bv.setVisible(true);
+			               add(bv);
+			               bh.setSize(75, 75);
+			               bh.setLocation(enemyBx + 40, enemyBy);
+			               bh.setVisible(true);
+			               add(bh);
+			               bd.setSize(75, 75);
+			               bd.setLocation(enemyBx, enemyBy + 40);
+			               bd.setVisible(true);
+			               add(bd);
+			               bl.setSize(75, 75);
+			               bl.setLocation(enemyBx - 40, enemyBy);
+			               bl.setVisible(true);
+			               add(bl);
+			               Thread.sleep(1000);
+			               bc.setVisible(false);
+			               bv.setVisible(false);
+			               bh.setVisible(false);
+			               bd.setVisible(false);
+			               bl.setVisible(false);
+			                              
+			               
+			               
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			};
+			new Thread(runnable).start();
+		}
+
+		Runnable one = new Runnable() {
+			@Override
+			public void run() {
+				if (check) {
+					BombDrop(char1p.getX(), char1p.getY());
+					BombDrop(char2p.getX(), char2p.getY());
+					check = false;
+					try {
+						Thread.sleep(3000);
+						check = true;
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		};
 	}
-	/*
-	 * public void keyPressed(KeyEvent e) { int keyCode=e.getKeyCode();
-	 * switch(keyCode) { case KeyEvent.VK_W: char1p.setLocation(char1p.getX(),
-	 * char1p.getY() - 10);break; case KeyEvent.VK_A:
-	 * char1p.setLocation(char1p.getX() - 10, char1p.getY());break; case
-	 * KeyEvent.VK_S: char1p.setLocation(char1p.getX(), char1p.getY() + 10);break;
-	 * case KeyEvent.VK_D: char1p.setLocation(char1p.getX() + 10,
-	 * char1p.getY());break; } }
-	 */
 
 	private void charCa1P(CharacterAbility1P getca1p) {
 		char1P = getca1p.getChar1P();
@@ -277,49 +359,4 @@ public class GameMap extends JPanel {
 		right2P = getci2p.getRight2P(); //
 		dieimg2P = getci2p.getDieimg2P(); //
 	}
-	/*
-	 * private void initListener() {
-	 * 
-	 * addKeyListener(new KeyAdapter() { // 키 리스너 추가 private boolean[] char1Key =
-	 * new boolean[256]; private boolean[] char2Key = new boolean[256]; private int
-	 * char1x = 0; private int char1y = 0; private int char2x = 0; private int
-	 * char2y = 0;
-	 * 
-	 * @Override public void keyPressed(KeyEvent e) { int keyCode = e.getKeyCode();
-	 * 
-	 * // 1p if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_A || keyCode ==
-	 * KeyEvent.VK_S || keyCode == KeyEvent.VK_D || keyCode == KeyEvent.VK_SHIFT) {
-	 * char1Key[keyCode] = true; }
-	 * 
-	 * // 2p else if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN ||
-	 * keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_RIGHT || keyCode ==
-	 * KeyEvent.VK_CONTROL) { char2Key[keyCode] = true; }
-	 * 
-	 * // 여기서 각 플레이어의 입력에 따른 게임 로직을 수행 processInputs(); }
-	 * 
-	 * @Override public void keyReleased(KeyEvent e) { int keyCode = e.getKeyCode();
-	 * if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_A || keyCode ==
-	 * KeyEvent.VK_S || keyCode == KeyEvent.VK_D ) { char1Key[keyCode] = false; //
-	 * 1p } else if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN ||
-	 * keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_RIGHT) {
-	 * char2Key[keyCode] = false; //2p } processInputs(); }
-	 * 
-	 * private void processInputs() { //1p if (char1Key[KeyEvent.VK_W]) {
-	 * //font1Label.setLocation(font1Label.getX(),font1Label.getY()-10);
-	 * char1p.setLocation(getX(), getY() - 10); // 위로 이동 } if
-	 * (char1Key[KeyEvent.VK_A]) { char1x -= 10; // 왼쪽으로 이동 } if
-	 * (char1Key[KeyEvent.VK_S]) { char1y += 10; // 아래로 이동 } if
-	 * (char1Key[KeyEvent.VK_D]) { char1x += 10; // 오른쪽으로 이동 } if
-	 * (char1Key[KeyEvent.VK_SHIFT]) { //new Thread(one).start(); //one 스레드 dropBomb
-	 * }
-	 * 
-	 * //2p if (char2Key[KeyEvent.VK_UP]) { char2y -= 10; // 위로 이동 } if
-	 * (char2Key[KeyEvent.VK_LEFT]) { char2x -= 10; // 왼쪽으로 이동 } if
-	 * (char2Key[KeyEvent.VK_DOWN]) { char2y += 10; // 아래로 이동 } if
-	 * (char2Key[KeyEvent.VK_RIGHT]) { char2x += 10; // 오른쪽으로 이동 } if
-	 * (char2Key[KeyEvent.VK_CONTROL]) { //new Thread(one).start(); } } //thread
-	 * dropBomp 추가 해야됨 }); setFocusable(true); requestFocus();
-	 * 
-	 * }
-	 */
 }
