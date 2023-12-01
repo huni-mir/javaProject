@@ -174,6 +174,8 @@ public class GameMap extends JPanel {
 	class MykeyListener extends KeyAdapter {
 		private boolean[] char1Key = new boolean[256];
 		private boolean[] char2Key = new boolean[256];
+		private int x;
+		private int y;
 
 		@Override
 		public void keyPressed(KeyEvent e) {
@@ -242,6 +244,17 @@ public class GameMap extends JPanel {
 				new Thread(one).start();
 			}
 		}
+		
+		
+		JLabel bc = new JLabel(new ImageIcon("img/bomb/bomb_explode.gif"));
+		JLabel bvup = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Vertical.png"));
+		JLabel bhright = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
+		JLabel bvdown = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Vertical.png"));
+		JLabel bhleft = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
+		JLabel bombLabel = new JLabel(new ImageIcon("img/bomb/bomb.png"));
+		
+		
+		
 
 		// 폭탄 드랍
 		public void BombDrop(int imgX, int imgY) {
@@ -252,7 +265,7 @@ public class GameMap extends JPanel {
 
 				@Override
 				public void run() {
-					JLabel bombLabel = new JLabel(new ImageIcon("img/bomb/bomb.png"));
+					
 
 					x = (x / 75) * 75;
 					y = (y / 75) * 75;
@@ -262,17 +275,13 @@ public class GameMap extends JPanel {
 					bombLabel.setVisible(true);
 					add(bombLabel);
 
-					int enemyBx = x + 16; // 2p
-					int enemyBy = y + 5; // 2p
+					int enemyBx = x ; // 2p
+					int enemyBy = y + 75; // 2p
 					try {
 						Thread.sleep(2000);
 						bombLabel.setVisible(false);
 
-						JLabel bc = new JLabel(new ImageIcon("img/bomb/bomb_explode.gif"));
-						JLabel bvup = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Vertical.png"));
-						JLabel bhright = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
-						JLabel bvdown = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Vertical.png"));
-						JLabel bhleft = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
+						
 
 						bc.setSize(75, 75);
 						bc.setLocation(enemyBx, enemyBy);
@@ -313,7 +322,7 @@ public class GameMap extends JPanel {
 			@Override
 			public void run() {
 				if (check) {
-					BombDrop(char1p.getX(), char1p.getY());
+					
 					BombDrop(char2p.getX(), char2p.getY());
 					check = false;
 					try {
