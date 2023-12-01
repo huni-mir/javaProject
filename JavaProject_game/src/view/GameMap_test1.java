@@ -252,11 +252,10 @@ public class GameMap_test1 extends JPanel {
 
 				@Override
 				public void run() {
-					ImageIcon bubble = new ImageIcon("img/bomb.png"); // 수정해야함
-					JLabel bombLabel = new JLabel(bombIcon);
+					JLabel bombLabel = new JLabel(new ImageIcon("img/bomb.png"));
 					
-					x = (x / 40) * 40;
-					y = (y / 40) * 40;
+					x = (x / 75) * 75;
+					y = (y / 75) * 75;
 
 					bombLabel.setSize(40, 40);
 					bombLabel.setLocation(x + 16, y + 5);
@@ -270,45 +269,40 @@ public class GameMap_test1 extends JPanel {
 						bombLabel.setVisible(false);
 
 						   
-						   ImageIcon bcenter = new ImageIcon("img/bomb_explode.gif");
-			               JLabel bc = new JLabel(bcenter);
-			               ImageIcon bvertical = new ImageIcon("img/bomb_Effect_Vertical.png");
-			               JLabel bv = new JLabel(bvertical);
-			               ImageIcon bhorizontal = new ImageIcon("img/bomb_Effect_Horizontal.png");
-			               JLabel bh = new JLabel(bhorizontal);
-			               ImageIcon bdown = new ImageIcon("images/bdown.png");
-			               JLabel bd = new JLabel(bdown);
-			               ImageIcon bleft = new ImageIcon("images/bleft.png");
-			               JLabel bl = new JLabel(bleft);
+						   
+						JLabel bc = new JLabel(new ImageIcon("img/bomb_explode.gif"));
+						JLabel bv = new JLabel(new ImageIcon("img/bomb_Effect_Horizontal.png"));
+						JLabel bh = new JLabel(new ImageIcon("img/bomb_Effect_Horizontal.png"));
+						JLabel bd = new JLabel(new ImageIcon("images/bdown.png"));
+						JLabel bl = new JLabel(new ImageIcon("images/bleft.png"));
 
-			               bc.setSize(40, 40);
+			               bc.setSize(75,75);
 			               bc.setLocation(enemyBx, enemyBy);
 			               bc.setVisible(true);
-			               contentPane.add(bc);
-			               bv.setSize(40, 40);
+			               add(bc);
+			               bv.setSize(75, 75);
 			               bv.setLocation(enemyBx, enemyBy - 40);
 			               bv.setVisible(true);
-			               contentPane.add(bv);
-			               bh.setSize(40, 40);
+			               add(bv);
+			               bh.setSize(75, 75);
 			               bh.setLocation(enemyBx + 40, enemyBy);
 			               bh.setVisible(true);
-			               contentPane.add(bh);
-			               bd.setSize(40, 40);
+			               add(bh);
+			               bd.setSize(75, 75);
 			               bd.setLocation(enemyBx, enemyBy + 40);
 			               bd.setVisible(true);
-			               contentPane.add(bd);
-			               bl.setSize(40, 40);
+			               add(bd);
+			               bl.setSize(75, 75);
 			               bl.setLocation(enemyBx - 40, enemyBy);
 			               bl.setVisible(true);
-			               contentPane.add(bl);
+			               add(bl);
 			               Thread.sleep(1000);
 			               bc.setVisible(false);
 			               bv.setVisible(false);
 			               bh.setVisible(false);
 			               bd.setVisible(false);
 			               bl.setVisible(false);
-			               
-			               checkLocation();
+			                              
 			               
 			               
 					} catch (InterruptedException e) {
