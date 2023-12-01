@@ -185,7 +185,7 @@ public class GameMap extends JPanel {
 			}
 			// 2p
 			else if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_LEFT
-					|| keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_CONTROL) {
+					|| keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_Z) {
 				char2Key[keyCode] = true;
 			}
 			// 여기서 각 플레이어의 입력에 따른 게임 로직을 수행
@@ -202,7 +202,7 @@ public class GameMap extends JPanel {
 			}
 			// 2p
 			else if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_LEFT
-					|| keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_CONTROL) {
+					|| keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_Z) {
 				char2Key[keyCode] = false;
 			}
 			processInputs();
@@ -223,7 +223,7 @@ public class GameMap extends JPanel {
 				char1p.setLocation(char1p.getX() + 10, char1p.getY());
 			}
 			if (char1Key[KeyEvent.VK_SHIFT]) {
-				new Thread(one).start(); // one 스레드 dropBomb
+				//new Thread(one).start(); // one 스레드 dropBomb
 			}
 			// 2p
 			if (char2Key[KeyEvent.VK_UP]) {
@@ -238,7 +238,7 @@ public class GameMap extends JPanel {
 			if (char2Key[KeyEvent.VK_RIGHT]) {
 				char2p.setLocation(char2p.getX() + 10, char2p.getY());
 			}
-			if (char2Key[KeyEvent.VK_CONTROL]) {
+			if (char2Key[KeyEvent.VK_Z]) {
 				new Thread(one).start();
 			}
 		}
@@ -258,7 +258,7 @@ public class GameMap extends JPanel {
 					y = (y / 75) * 75;
 
 					bombLabel.setSize(75, 75);
-					bombLabel.setLocation(x + 16, y + 5);
+					bombLabel.setLocation(x, y + 5);
 					bombLabel.setVisible(true);
 					add(bombLabel);
 
@@ -273,35 +273,24 @@ public class GameMap extends JPanel {
 						JLabel bc = new JLabel(new ImageIcon("img/bomb/bomb_explode.gif"));
 						JLabel bv = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
 						JLabel bh = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
-						JLabel bd = new JLabel(new ImageIcon("images/bdown.png"));
-						JLabel bl = new JLabel(new ImageIcon("images/bleft.png"));
+						
 
 			               bc.setSize(75,75);
 			               bc.setLocation(enemyBx, enemyBy);
 			               bc.setVisible(true);
 			               add(bc);
 			               bv.setSize(75, 75);
-			               bv.setLocation(enemyBx, enemyBy - 40);
+			               bv.setLocation(enemyBx, enemyBy - 75);
 			               bv.setVisible(true);
 			               add(bv);
 			               bh.setSize(75, 75);
-			               bh.setLocation(enemyBx + 40, enemyBy);
+			               bh.setLocation(enemyBx + 75, enemyBy);
 			               bh.setVisible(true);
-			               add(bh);
-			               bd.setSize(75, 75);
-			               bd.setLocation(enemyBx, enemyBy + 40);
-			               bd.setVisible(true);
-			               add(bd);
-			               bl.setSize(75, 75);
-			               bl.setLocation(enemyBx - 40, enemyBy);
-			               bl.setVisible(true);
-			               add(bl);
+			               add(bh);			           
 			               Thread.sleep(1000);
 			               bc.setVisible(false);
 			               bv.setVisible(false);
 			               bh.setVisible(false);
-			               bd.setVisible(false);
-			               bl.setVisible(false);
 			                              
 			               
 			               
