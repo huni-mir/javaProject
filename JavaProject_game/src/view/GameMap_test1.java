@@ -10,7 +10,6 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import model.Character1P;
 import model.Character2P;
@@ -246,50 +245,72 @@ public class GameMap_test1 extends JPanel {
 
 		// 폭탄 드랍
 		public void BombDrop(int imgX, int imgY) {
-			int x = imgX; // 현재 위치 변수 바꿔야됨
-			int y = imgY; // 현재 위치 변수 바꿔야됨
+			x = imgX; // 현재 위치 변수 바꿔야됨
+			y = imgY; // 현재 위치 변수 바꿔야됨
 
 			Runnable runnable = new Runnable() {
 
 				@Override
 				public void run() {
-					ImageIcon bubble = new ImageIcon("imag/bomb_up.png"); // 수정해야함
-					JLabel bu = new JLabel(bubble);
+					ImageIcon bubble = new ImageIcon("img/bomb.png"); // 수정해야함
+					JLabel bombLabel = new JLabel(bombIcon);
+					
 					x = (x / 40) * 40;
 					y = (y / 40) * 40;
 
-					bu.setSize(40, 40);
-					bu.setLocation(x + 16, y + 5);
-					bu.setVisible(true);
-					contentPane.add(bu);
+					bombLabel.setSize(40, 40);
+					bombLabel.setLocation(x + 16, y + 5);
+					bombLabel.setVisible(true);
+					bombLabel.add(bombLabel);
 
 					int enemyBx = x + 16; // 2p
 					int enemyBy = y + 5; // 2p
 					try {
 						Thread.sleep(2000);
-						bu.setVisible(false);
+						bombLabel.setVisible(false);
 
-						/*
-						 * ImageIcon bcenter = new ImageIcon("images/bcenter.png"); JLabel bc = new
-						 * JLabel(bcenter); ImageIcon bup = new ImageIcon("images/bup.png"); JLabel bupp
-						 * = new JLabel(bup); ImageIcon bright = new ImageIcon("images/bright.png");
-						 * JLabel br = new JLabel(bright); ImageIcon bdown = new
-						 * ImageIcon("images/bdown.png"); JLabel bd = new JLabel(bdown); ImageIcon bleft
-						 * = new ImageIcon("images/bleft.png"); JLabel bl = new JLabel(bleft);
-						 * 
-						 * bc.setSize(40, 40); bc.setLocation(enemyBx, enemyBy); bc.setVisible(true);
-						 * contentPane.add(bc); bupp.setSize(40, 40); bupp.setLocation(enemyBx, enemyBy
-						 * - 40); bupp.setVisible(true); contentPane.add(bupp); br.setSize(40, 40);
-						 * br.setLocation(enemyBx + 40, enemyBy); br.setVisible(true);
-						 * contentPane.add(br); bd.setSize(40, 40); bd.setLocation(enemyBx, enemyBy +
-						 * 40); bd.setVisible(true); contentPane.add(bd); bl.setSize(40, 40);
-						 * bl.setLocation(enemyBx - 40, enemyBy); bl.setVisible(true);
-						 * contentPane.add(bl); Thread.sleep(1000); bc.setVisible(false);
-						 * bupp.setVisible(false); br.setVisible(false); bd.setVisible(false);
-						 * bl.setVisible(false);
-						 * 
-						 * checkLocation();
-						 */
+						   
+						   ImageIcon bcenter = new ImageIcon("img/bomb_explode.gif");
+			               JLabel bc = new JLabel(bcenter);
+			               ImageIcon bvertical = new ImageIcon("img/bomb_Effect_Vertical.png");
+			               JLabel bv = new JLabel(bvertical);
+			               ImageIcon bhorizontal = new ImageIcon("img/bomb_Effect_Horizontal.png");
+			               JLabel bh = new JLabel(bhorizontal);
+			               ImageIcon bdown = new ImageIcon("images/bdown.png");
+			               JLabel bd = new JLabel(bdown);
+			               ImageIcon bleft = new ImageIcon("images/bleft.png");
+			               JLabel bl = new JLabel(bleft);
+
+			               bc.setSize(40, 40);
+			               bc.setLocation(enemyBx, enemyBy);
+			               bc.setVisible(true);
+			               contentPane.add(bc);
+			               bv.setSize(40, 40);
+			               bv.setLocation(enemyBx, enemyBy - 40);
+			               bv.setVisible(true);
+			               contentPane.add(bv);
+			               bh.setSize(40, 40);
+			               bh.setLocation(enemyBx + 40, enemyBy);
+			               bh.setVisible(true);
+			               contentPane.add(bh);
+			               bd.setSize(40, 40);
+			               bd.setLocation(enemyBx, enemyBy + 40);
+			               bd.setVisible(true);
+			               contentPane.add(bd);
+			               bl.setSize(40, 40);
+			               bl.setLocation(enemyBx - 40, enemyBy);
+			               bl.setVisible(true);
+			               contentPane.add(bl);
+			               Thread.sleep(1000);
+			               bc.setVisible(false);
+			               bv.setVisible(false);
+			               bh.setVisible(false);
+			               bd.setVisible(false);
+			               bl.setVisible(false);
+			               
+			               checkLocation();
+			               
+			               
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -298,13 +319,12 @@ public class GameMap_test1 extends JPanel {
 			new Thread(runnable).start();
 		}
 
-		// 폭탄 드랍
 		Runnable one = new Runnable() {
-
 			@Override
 			public void run() {
 				if (check) {
-					BombDrop();
+					BombDrop(char1p.getX(), char1p.getY());
+					BombDrop(char2p.getX(), char2p.getY());
 					check = false;
 					try {
 						Thread.sleep(3000);
