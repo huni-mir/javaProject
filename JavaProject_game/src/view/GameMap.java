@@ -223,7 +223,7 @@ public class GameMap extends JPanel {
 				char1p.setLocation(char1p.getX() + 10, char1p.getY());
 			}
 			if (char1Key[KeyEvent.VK_SHIFT]) {
-				//new Thread(one).start(); // one 스레드 dropBomb
+				// new Thread(one).start(); // one 스레드 dropBomb
 			}
 			// 2p
 			if (char2Key[KeyEvent.VK_UP]) {
@@ -253,12 +253,12 @@ public class GameMap extends JPanel {
 				@Override
 				public void run() {
 					JLabel bombLabel = new JLabel(new ImageIcon("img/bomb/bomb.png"));
-					
+
 					x = (x / 75) * 75;
 					y = (y / 75) * 75;
 
 					bombLabel.setSize(75, 75);
-					bombLabel.setLocation(x, y + 5);
+					bombLabel.setLocation(x, y + 75);
 					bombLabel.setVisible(true);
 					add(bombLabel);
 
@@ -268,32 +268,39 @@ public class GameMap extends JPanel {
 						Thread.sleep(2000);
 						bombLabel.setVisible(false);
 
-						   
-						   
 						JLabel bc = new JLabel(new ImageIcon("img/bomb/bomb_explode.gif"));
-						JLabel bv = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
-						JLabel bh = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
-						
+						JLabel bvup = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Vertical.png"));
+						JLabel bhright = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
+						JLabel bvdown = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Vertical.png"));
+						JLabel bhleft = new JLabel(new ImageIcon("img/bomb/bomb_Effect_Horizontal.png"));
 
-			               bc.setSize(75,75);
-			               bc.setLocation(enemyBx, enemyBy);
-			               bc.setVisible(true);
-			               add(bc);
-			               bv.setSize(75, 75);
-			               bv.setLocation(enemyBx, enemyBy - 75);
-			               bv.setVisible(true);
-			               add(bv);
-			               bh.setSize(75, 75);
-			               bh.setLocation(enemyBx + 75, enemyBy);
-			               bh.setVisible(true);
-			               add(bh);			           
-			               Thread.sleep(1000);
-			               bc.setVisible(false);
-			               bv.setVisible(false);
-			               bh.setVisible(false);
-			                              
-			               
-			               
+						bc.setSize(75, 75);
+						bc.setLocation(enemyBx, enemyBy);
+						bc.setVisible(true);
+						add(bc);
+						bvup.setSize(75, 75);
+						bvup.setLocation(enemyBx, enemyBy - 75);
+						bvup.setVisible(true);
+						add(bvup);
+						bhright.setSize(75, 75);
+						bhright.setLocation(enemyBx + 75, enemyBy);
+						bhright.setVisible(true);
+						add(bhright);
+						bvdown.setSize(75, 75);
+						bvdown.setLocation(enemyBx, enemyBy + 75);
+						bvdown.setVisible(true);
+						add(bvdown);
+						bhleft.setSize(75, 75);
+						bhleft.setLocation(enemyBx - 75, enemyBy);
+						bhleft.setVisible(true);
+						add(bhleft);
+						Thread.sleep(1000);
+						bc.setVisible(false);
+						bvup.setVisible(false);
+						bhright.setVisible(false);
+						bvdown.setVisible(false);
+						bhleft.setVisible(false);
+
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
