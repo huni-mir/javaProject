@@ -1,4 +1,4 @@
-# javaProject
+# java
 
 Contribute
 - 신동훈
