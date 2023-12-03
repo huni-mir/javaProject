@@ -7,12 +7,12 @@ import javax.swing.*;
 import model.*;
 
 public class SelectPanel extends JPanel {
-	private ImageIcon MainGame = new ImageIcon("img/background/select.png"); // 인트로 이미지
+	private ImageIcon MainGame = new ImageIcon("img/background/select.png"); // 캐릭터 선택 화면 배경 이미지
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // 화면을 비운다
 
-		g.drawImage(MainGame.getImage(), 0, 0, null);
+		g.drawImage(MainGame.getImage(), 0, 0, null); // 캐릭터 선택 화면 배경 이미지 그리기
 	}
 
 	// 상단 캐릭터 선택 이미지 아이콘
@@ -79,14 +79,14 @@ public class SelectPanel extends JPanel {
 	private JButton StartBtn;
 
 	// 게임에서 사용할 캐릭터 이미지들을 담을 오브젝트
-	private CaricValue1p cv1P;
-	private CaricValue2p cv2P;
+	private CharacterValue1p cv1P;
+	private CharacterValue2p cv2P;
 
-	public CaricValue1p getcv1P() {
+	public CharacterValue1p getcv1P() {
 		return cv1P;
 	}
 
-	public CaricValue2p getcv2P() {
+	public CharacterValue2p getcv2P() {
 		return cv2P;
 	}
 
@@ -139,7 +139,7 @@ public class SelectPanel extends JPanel {
 					view1p.setBounds(100, 320, 325, 450);
 					add(view1p);
 
-					cv1P = new CaricValue1p(3, 1, 2, 1, new ImageIcon("img/character/catFront.png"),
+					cv1P = new CharacterValue1p(3, 1, 2, 1, new ImageIcon("img/character/catFront.png"),
 							new ImageIcon("img/character/catback.png"), new ImageIcon("img/character/catleft.png"),
 							new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/catdie.png"));
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
@@ -152,7 +152,7 @@ public class SelectPanel extends JPanel {
 					view2p.setBounds(1175, 320, 325, 450);
 					add(view2p);
 
-					cv2P = new CaricValue2p(3, 1, 2, 1, new ImageIcon("img/character/catFront2.png"),
+					cv2P = new CharacterValue2p(3, 1, 2, 1, new ImageIcon("img/character/catFront2.png"),
 							new ImageIcon("img/character/catback2.png"), new ImageIcon("img/character/catleft2.png"),
 							new ImageIcon("img/character/catright2.png"), new ImageIcon("img/character/catdie2.png"));
 				}
@@ -206,7 +206,7 @@ public class SelectPanel extends JPanel {
 					view1p.setBounds(100, 320, 325, 450);
 					add(view1p);
 
-					cv1P = new CaricValue1p(3, 2, 1, 1, new ImageIcon("img/character/rabbitFront.png"),
+					cv1P = new CharacterValue1p(3, 2, 1, 1, new ImageIcon("img/character/rabbitFront.png"),
 							new ImageIcon("img/character/rabbitback.png"),
 							new ImageIcon("img/character/rabbitleft.png"),
 							new ImageIcon("img/character/rabbitright.png"),
@@ -221,7 +221,7 @@ public class SelectPanel extends JPanel {
 					view2p.setBounds(1175, 320, 325, 450);
 					add(view2p);
 
-					cv2P = new CaricValue2p(3, 2, 1, 1, new ImageIcon("img/character/rabbitFront2.png"),
+					cv2P = new CharacterValue2p(3, 2, 1, 1, new ImageIcon("img/character/rabbitFront2.png"),
 							new ImageIcon("img/character/rabbitback2.png"),
 							new ImageIcon("img/character/rabbitleft2.png"),
 							new ImageIcon("img/character/rabbitright2.png"),
@@ -277,7 +277,7 @@ public class SelectPanel extends JPanel {
 					view1p.setBounds(100, 320, 325, 450);
 					add(view1p);
 
-					cv1P = new CaricValue1p(3, 1, 1, 2, new ImageIcon("img/character/bearFront.png"),
+					cv1P = new CharacterValue1p(3, 1, 1, 2, new ImageIcon("img/character/bearFront.png"),
 							new ImageIcon("img/character/bearback.png"), new ImageIcon("img/character/bearleft.png"),
 							new ImageIcon("img/character/bearright.png"), new ImageIcon("img/character/beardie.png"));
 
@@ -291,7 +291,7 @@ public class SelectPanel extends JPanel {
 					view2p.setBounds(1175, 320, 325, 450);
 					add(view2p);
 
-					cv2P = new CaricValue2p(3, 1, 1, 2, new ImageIcon("img/character/bearFront2.png"),
+					cv2P = new CharacterValue2p(3, 1, 1, 2, new ImageIcon("img/character/bearFront2.png"),
 							new ImageIcon("img/character/bearback2.png"), new ImageIcon("img/character/bearleft2.png"),
 							new ImageIcon("img/character/bearright2.png"), new ImageIcon("img/character/beardie2.png"));
 				}
@@ -343,7 +343,7 @@ public class SelectPanel extends JPanel {
 					view1p.setBounds(100, 320, 325, 450);
 					add(view1p);
 
-					cv1P = new CaricValue1p(4, 1, 1, 1, new ImageIcon("img/character/astronautFront.png"),
+					cv1P = new CharacterValue1p(4, 1, 1, 1, new ImageIcon("img/character/astronautFront.png"),
 							new ImageIcon("img/character/astronautback.png"),
 							new ImageIcon("img/character/astronautleft.png"),
 							new ImageIcon("img/character/astronautright.png"),
@@ -358,7 +358,7 @@ public class SelectPanel extends JPanel {
 					view2p.setBounds(1175, 320, 325, 450);
 					add(view2p);
 
-					cv2P = new CaricValue2p(4, 1, 1, 1, new ImageIcon("img/character/astronautFront2.png"),
+					cv2P = new CharacterValue2p(4, 1, 1, 1, new ImageIcon("img/character/astronautFront2.png"),
 							new ImageIcon("img/character/astronautback2.png"),
 							new ImageIcon("img/character/astronautleft2.png"),
 							new ImageIcon("img/character/astronautright2.png"),

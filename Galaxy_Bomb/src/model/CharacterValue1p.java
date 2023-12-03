@@ -2,7 +2,7 @@ package model;
 
 import javax.swing.ImageIcon;
 
-public class CaricValue1p {
+public class CharacterValue1p {
 	// 캐릭터 체력
 	private int char1P = 0; // 1P 체력
 	// 캐릭터 능력
@@ -18,7 +18,7 @@ public class CaricValue1p {
 	private ImageIcon dieimg1P; // 죽음
 
 	// 생성자
-	public CaricValue1p(int char1P, int speed1P, int bomb1P, int range1P, ImageIcon front1p, ImageIcon back1p,
+	public CharacterValue1p(int char1P, int speed1P, int bomb1P, int range1P, ImageIcon front1p, ImageIcon back1p,
 			ImageIcon left1p, ImageIcon right1p, ImageIcon dieimg1p) {
 		this.char1P = char1P;
 		this.speed1P = speed1P;

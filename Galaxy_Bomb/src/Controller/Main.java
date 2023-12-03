@@ -1,63 +1,65 @@
 package Controller;
 
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import view.*;
 
-import view.ExplainPanel;
-import view.GamePanel;
-import view.IntroPanel;
-import view.SelectPanel;
-
-public class Main extends Listener {
+public class Main implements ActionListener {
 	private JFrame frame = new JFrame(); // 창을 띄우기 위한 프레임
 
-	private IntroPanel introPanel; // 인트로 패널
-	private ExplainPanel explainPanel; // 설명 패널
-	private SelectPanel selectPanel; // 캐릭터 선택 패널
-	private GamePanel gamePanel; // 게임 맵 패널
+	private IntroPanel introPanel; // 인트로 패널 선언
+	private ExplainPanel explainPanel; // 설명 패널 선언
+	private SelectPanel selectPanel; // 캐릭터 선택 패널 선언
+	private GamePanel gamePanel; // 게임 맵 패널 선언
 
 	public Main() { // 프레임 영역
+		// 패널 생성
 		introPanel = new IntroPanel(this);
 		explainPanel = new ExplainPanel(this);
 		selectPanel = new SelectPanel(this);
 
+		// 프레임 기본 설정
 		frame.setTitle("Galaxy Bomb");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setResizable(false);
 
+		// 각 패널 위치, 사이즈 설정
 		introPanel.setBounds(0, 0, 1600, 900);
 		explainPanel.setBounds(0, 0, 1600, 900);
 		selectPanel.setBounds(0, 0, 1600, 900);
 
+		// 프레임에 패널 추가
 		frame.add(introPanel);
 		frame.add(explainPanel);
 		frame.add(selectPanel);
 
+		// 인트로 패널 제외하고 Visible false
 		explainPanel.setVisible(false);
 		selectPanel.setVisible(false);
-		// gamePanel.setVisible(false);
 
+		// 프레임 사이즈 설정
 		frame.setSize(1616, 939);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 
+	// 게임 패널 생성 메소드 (패널 재시작 구현을 위해서 메소드 생성)
 	public void gamestart() {
 		gamePanel = new GamePanel(this);
 
 		gamePanel.setBounds(0, 0, 1200, 900);
 		frame.add(gamePanel);
-		gamePanel.setVisible(true);
+		// 게임 패널에 포커스 부여
+		gamePanel.requestFocus();
+		gamePanel.setFocusable(true);
 	}
 
-	public void actionPerformed(ActionEvent e) { // 버튼 리스너
+	public void actionPerformed(ActionEvent e) { // 버튼 액션 리스너
 		JButton btn = (JButton) e.getSource();
 
-		if (btn.getName().equals("FirstStartBtn")) { // 인트로 시작 버튼 누를 시
+		if (btn.getName().equals("FirstStartBtn")) { // 인트로에서 시작 버튼 누를 시
 			introPanel.setVisible(false);
 			selectPanel.setVisible(true);
 		} else if (btn.getName().equals("ExplainBtn")) { // 설명 버튼 누를 시
@@ -65,28 +67,27 @@ public class Main extends Listener {
 			explainPanel.setVisible(true);
 		} else if (btn.getName().equals("ExitBtn")) { // 종료 버튼 누를 시
 			System.exit(0); // 게임 종료
-		} else if (btn.getName().equals("backBtn")) { // 뒤로가기 버튼 누를 시
+		} else if (btn.getName().equals("backBtn")) { // 설명 패널에서 뒤로가기 버튼 누를 시
 			explainPanel.setVisible(false);
 			selectPanel.setVisible(false);
 			introPanel.setVisible(true);
-		} else if (btn.getName().equals("StartBtn")) { // 스탠바이에서 시작 버튼 누를 시
+		} else if (btn.getName().equals("StartBtn")) { // 캐릭터 선택에서 시작 버튼 누를 시
 			if (selectPanel.getcv1P() == null) {
 				JOptionPane.showMessageDialog(null, "1P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
 			} else if (selectPanel.getcv2P() == null) {
 				JOptionPane.showMessageDialog(null, "2P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
-			} else {
+			} else { // 게임 패널로 변경
 				selectPanel.setVisible(false);
 
 				gamestart();
 
-				gamePanel.requestFocus();
-				gamePanel.setFocusable(true);
+				// 선택한 캐릭터의 값 전달
 				gamePanel.gameSet(selectPanel.getcv1P(), selectPanel.getcv2P());
 
 				frame.setSize(1216, 939);
 				frame.setLocationRelativeTo(null);
 			}
-		} else if (btn.getName().equals("restartBtn")) {
+		} else if (btn.getName().equals("restartBtn")) { // 게임이 끝나고 다시 시작 버튼 누를 시
 			gamePanel.setVisible(false);
 			frame.setSize(1616, 939);
 			frame.setLocationRelativeTo(null);
@@ -95,6 +96,6 @@ public class Main extends Listener {
 	}
 
 	public static void main(String[] args) {
-		new Main();
+		new Main(); // 게임 실행
 	}
 }

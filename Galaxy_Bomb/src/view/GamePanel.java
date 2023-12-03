@@ -10,7 +10,7 @@ import model.*;
 
 public class GamePanel extends JPanel {
 	private ImageIcon MainGame = new ImageIcon("img/background/inGame.png");
-
+	
 	private ImageIcon speed_up = new ImageIcon("img/item/speed_up.png");
 	private ImageIcon bomb_up = new ImageIcon("img/item/bomb_up.png");
 	private ImageIcon heart_up = new ImageIcon("img/item/heart_up.png");
@@ -591,7 +591,7 @@ public class GamePanel extends JPanel {
 		}
 	};
 
-	public void gameSet(CaricValue1p getcv1P, CaricValue2p getcv2P) { // 게임 세팅 및 스레드 실행
+	public void gameSet(CharacterValue1p getcv1P, CharacterValue2p getcv2P) { // 게임 세팅 및 스레드 실행
 		setFocusable(true);
 
 		win1p.setBounds(185, 200, 838, 553);
@@ -631,7 +631,7 @@ public class GamePanel extends JPanel {
 		initListener();
 	}
 
-	private void initCharImg1p(CaricValue1p cv1p) { // SelectPamel에서 선택된 1p 캐릭터 이미지 및 능력을 받아옴
+	private void initCharImg1p(CharacterValue1p cv1p) { // SelectPamel에서 선택된 1p 캐릭터 이미지 및 능력을 받아옴
 		front1p = cv1p.getFront1P();
 		back1p = cv1p.getBack1P();
 		left1p = cv1p.getLeft1P();
@@ -645,7 +645,7 @@ public class GamePanel extends JPanel {
 
 	}
 
-	private void initCharImg2p(CaricValue2p cv2p) { // SelectPamel에서 선택된 2p 캐릭터 이미지 및 능력을 받아옴
+	private void initCharImg2p(CharacterValue2p cv2p) { // SelectPamel에서 선택된 2p 캐릭터 이미지 및 능력을 받아옴
 		front2p = cv2p.getFront2P();
 		back2p = cv2p.getBack2P();
 		left2p = cv2p.getLeft2P();
