@@ -81,7 +81,7 @@ public class SelectPanel extends JPanel {
 		setLayout(null);
 		
 		// 뒤로가기 버튼 설정
-		backBtn = new JButton(new ImageIcon("img/button/back.png"));
+		backBtn = new JButton(new ImageIcon("img/button/back_black.png"));
 		backBtn.setName("backBtn");
 		backBtn.addActionListener((ActionListener) o);
 		backBtn.setBounds(44, 30, 69, 115);
