@@ -14,52 +14,52 @@ public class IntroPanel extends JPanel {
 	}
 
 	// 버튼 선언
-	private JButton StartBtn = new JButton();
-	private JButton ExplainBtn = new JButton();
-	private JButton ExitBtn = new JButton();
+	private JButton startBtn = new JButton();
+	private JButton explainBtn = new JButton();
+	private JButton exitBtn = new JButton();
 
 	public IntroPanel(Object o) { // 리스너 추가를 위해서 Object o 인자 추가
 		setLayout(null);
 
 		// 버튼 생성
-		StartBtn = new JButton(new ImageIcon("img/button/gameStart.png"));
-		StartBtn.setName("FirstStartBtn");
+		startBtn = new JButton(new ImageIcon("img/button/gameStart.png"));
+		startBtn.setName("firstStartBtn");
 
-		ExplainBtn = new JButton(new ImageIcon("img/button/gameEx.png"));
-		ExplainBtn.setName("ExplainBtn");
+		explainBtn = new JButton(new ImageIcon("img/button/gameEx.png"));
+		explainBtn.setName("explainBtn");
 
-		ExitBtn = new JButton(new ImageIcon("img/button/gameQuit.png"));
-		ExitBtn.setName("ExitBtn");
+		exitBtn = new JButton(new ImageIcon("img/button/gameQuit.png"));
+		exitBtn.setName("exitBtn");
 
 		// 버튼에 리스너 추가
-		StartBtn.addActionListener((ActionListener) o);
-		ExplainBtn.addActionListener((ActionListener) o);
-		ExitBtn.addActionListener((ActionListener) o);
+		startBtn.addActionListener((ActionListener) o);
+		explainBtn.addActionListener((ActionListener) o);
+		exitBtn.addActionListener((ActionListener) o);
 
 		// 버튼 위치, 크기 설정
-		StartBtn.setBounds(625, 521, 351, 95);
-		ExplainBtn.setBounds(625, 646, 351, 95);
-		ExitBtn.setBounds(625, 771, 351, 95);
+		startBtn.setBounds(625, 521, 351, 95);
+		explainBtn.setBounds(625, 646, 351, 95);
+		exitBtn.setBounds(625, 771, 351, 95);
 
 		// 각 버튼 기본 배경 제거
-		StartBtn.setBorderPainted(false);
-		StartBtn.setContentAreaFilled(false);
-		StartBtn.setFocusPainted(false);
-		ExplainBtn.setBorderPainted(false);
-		ExplainBtn.setContentAreaFilled(false);
-		ExplainBtn.setFocusPainted(false);
-		ExitBtn.setBorderPainted(false);
-		ExitBtn.setContentAreaFilled(false);
-		ExitBtn.setFocusPainted(false);
+		startBtn.setBorderPainted(false);
+		startBtn.setContentAreaFilled(false);
+		startBtn.setFocusPainted(false);
+		explainBtn.setBorderPainted(false);
+		explainBtn.setContentAreaFilled(false);
+		explainBtn.setFocusPainted(false);
+		exitBtn.setBorderPainted(false);
+		exitBtn.setContentAreaFilled(false);
+		exitBtn.setFocusPainted(false);
 
 		// 패널에 버튼 추가
-		add(StartBtn);
-		add(ExplainBtn);
-		add(ExitBtn);
+		add(startBtn);
+		add(explainBtn);
+		add(exitBtn);
 
 		// 버튼에 마우스 올릴 시 이미지 변경
-		StartBtn.setRolloverIcon(new ImageIcon("img/button/gameStartSelect.png"));
-		ExplainBtn.setRolloverIcon(new ImageIcon("img/button/gameExSelect.png"));
-		ExitBtn.setRolloverIcon(new ImageIcon("img/button/gameQuitSelect.png"));
+		startBtn.setRolloverIcon(new ImageIcon("img/button/gameStartSelect.png"));
+		explainBtn.setRolloverIcon(new ImageIcon("img/button/gameExSelect.png"));
+		exitBtn.setRolloverIcon(new ImageIcon("img/button/gameQuitSelect.png"));
 	}
 }

@@ -46,7 +46,7 @@ public class Main implements ActionListener {
 	}
 
 	// 게임 패널 생성 메소드 (패널 재시작 구현을 위해서 메소드 생성)
-	public void gamestart() {
+	public void gamePanelStart() {
 		gamePanel = new GamePanel(this);
 
 		gamePanel.setBounds(0, 0, 1200, 900);
@@ -55,23 +55,31 @@ public class Main implements ActionListener {
 		gamePanel.requestFocus();
 		gamePanel.setFocusable(true);
 	}
+	
+	// 캐릭터 선택 패널 생성 메소드
+	public void selectPanelStart() {
+		selectPanel = new SelectPanel(this);
+		
+		selectPanel.setBounds(0, 0, 1600, 900);
+		frame.add(selectPanel);
+	}
 
 	public void actionPerformed(ActionEvent e) { // 버튼 액션 리스너
 		JButton btn = (JButton) e.getSource();
 
-		if (btn.getName().equals("FirstStartBtn")) { // 인트로에서 시작 버튼 누를 시
+		if (btn.getName().equals("firstStartBtn")) { // 인트로에서 시작 버튼 누를 시
 			introPanel.setVisible(false);
-			selectPanel.setVisible(true);
-		} else if (btn.getName().equals("ExplainBtn")) { // 설명 버튼 누를 시
+			selectPanelStart();
+		} else if (btn.getName().equals("explainBtn")) { // 설명 버튼 누를 시
 			introPanel.setVisible(false);
 			explainPanel.setVisible(true);
-		} else if (btn.getName().equals("ExitBtn")) { // 종료 버튼 누를 시
+		} else if (btn.getName().equals("exitBtn")) { // 종료 버튼 누를 시
 			System.exit(0); // 게임 종료
 		} else if (btn.getName().equals("backBtn")) { // 설명 패널에서 뒤로가기 버튼 누를 시
 			explainPanel.setVisible(false);
 			selectPanel.setVisible(false);
 			introPanel.setVisible(true);
-		} else if (btn.getName().equals("StartBtn")) { // 캐릭터 선택에서 시작 버튼 누를 시
+		} else if (btn.getName().equals("startBtn")) { // 캐릭터 선택에서 시작 버튼 누를 시
 			if (selectPanel.getcv1P() == null) {
 				JOptionPane.showMessageDialog(null, "1P캐릭터를 골라주세요"); // 캐릭터를 안골랐을경우 팝업
 			} else if (selectPanel.getcv2P() == null) {
@@ -79,7 +87,7 @@ public class Main implements ActionListener {
 			} else { // 게임 패널로 변경
 				selectPanel.setVisible(false);
 
-				gamestart();
+				gamePanelStart();
 
 				// 선택한 캐릭터의 값 전달
 				gamePanel.gameSet(selectPanel.getcv1P(), selectPanel.getcv2P());

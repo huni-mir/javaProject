@@ -61,8 +61,9 @@ public class SelectPanel extends JPanel {
 	private JLabel stat3 = new JLabel();
 	private JLabel stat4 = new JLabel();
 
-	// 시작 버튼 선언
-	private JButton StartBtn;
+	// 버튼 선언
+	private JButton backBtn;
+	private JButton startBtn;
 
 	// 게임에서 사용할 캐릭터 이미지들을 담을 오브젝트
 	private CharacterValue1p cv1P;
@@ -78,17 +79,27 @@ public class SelectPanel extends JPanel {
 
 	public SelectPanel(Object o) {
 		setLayout(null);
+		
+		// 뒤로가기 버튼 설정
+		backBtn = new JButton(new ImageIcon("img/button/back.png"));
+		backBtn.setName("backBtn");
+		backBtn.addActionListener((ActionListener) o);
+		backBtn.setBounds(44, 30, 69, 115);
+		add(backBtn);
+		backBtn.setBorderPainted(false);
+		backBtn.setContentAreaFilled(false);
+		backBtn.setFocusPainted(false);
 
 		// 시작 버튼 설정
-		StartBtn = new JButton(new ImageIcon("img/button/GameStart.png"));
-		StartBtn.setName("StartBtn");
-		StartBtn.addActionListener((ActionListener) o);
-		StartBtn.setBounds(625, 771, 351, 95);
-		add(StartBtn);
-		StartBtn.setBorderPainted(false);
-		StartBtn.setContentAreaFilled(false);
-		StartBtn.setFocusPainted(false);
-		StartBtn.setRolloverIcon(new ImageIcon("img/button/gameStartSelect.png")); // 시작 버튼에 마우스 올릴 시
+		startBtn = new JButton(new ImageIcon("img/button/GameStart.png"));
+		startBtn.setName("startBtn");
+		startBtn.addActionListener((ActionListener) o);
+		startBtn.setBounds(625, 771, 351, 95);
+		add(startBtn);
+		startBtn.setBorderPainted(false);
+		startBtn.setContentAreaFilled(false);
+		startBtn.setFocusPainted(false);
+		startBtn.setRolloverIcon(new ImageIcon("img/button/gameStartSelect.png")); // 시작 버튼에 마우스 올릴 시
 
 		// 캐릭터 선택 가이드 이미지 설정
 		click1p.setBounds(213, 153, 100, 149);
