@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 
 public class CharacterValue1p {
 	// 캐릭터 체력
-	private int char1P = 0; // 1P 체력
+	private int heart1P = 0; // 1P 체력
 	// 캐릭터 능력
 	private int speed1P = 0; // 1P 스피드
 	private int bomb1P = 0; // 1P 폭탄 갯수
@@ -18,9 +18,9 @@ public class CharacterValue1p {
 	private ImageIcon dieimg1P; // 죽음
 
 	// 생성자
-	public CharacterValue1p(int char1P, int speed1P, int bomb1P, int range1P, ImageIcon front1p, ImageIcon back1p,
+	public CharacterValue1p(int heart1P, int speed1P, int bomb1P, int range1P, ImageIcon front1p, ImageIcon back1p,
 			ImageIcon left1p, ImageIcon right1p, ImageIcon dieimg1p) {
-		this.char1P = char1P;
+		this.heart1P = heart1P;
 		this.speed1P = speed1P;
 		this.bomb1P = bomb1P;
 		this.range1P = range1P;
@@ -32,12 +32,12 @@ public class CharacterValue1p {
 	}
 
 	// Getter 및 Setter 메서드
-	public int getChar1P() {
-		return char1P;
+	public int getHeart1P() {
+		return heart1P;
 	}
 
-	public void setChar1P(int char1P) {
-		this.char1P = char1P;
+	public void setHeart1P(int heart1P) {
+		this.heart1P = heart1P;
 	}
 
 	public int getSpeed1P() {

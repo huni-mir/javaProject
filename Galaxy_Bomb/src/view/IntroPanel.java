@@ -13,17 +13,22 @@ public class IntroPanel extends JPanel {
 		g.drawImage(introImg.getImage(), 0, 0, null); // 인트로 배경 이미지 그리기
 	}
 
+	// 버튼 선언
+	private JButton StartBtn = new JButton();
+	private JButton ExplainBtn = new JButton();
+	private JButton ExitBtn = new JButton();
+
 	public IntroPanel(Object o) { // 리스너 추가를 위해서 Object o 인자 추가
 		setLayout(null);
 
 		// 버튼 생성
-		JButton StartBtn = new JButton(new ImageIcon("img/button/gameStart.png"));
+		StartBtn = new JButton(new ImageIcon("img/button/gameStart.png"));
 		StartBtn.setName("FirstStartBtn");
 
-		JButton ExplainBtn = new JButton(new ImageIcon("img/button/gameEx.png"));
+		ExplainBtn = new JButton(new ImageIcon("img/button/gameEx.png"));
 		ExplainBtn.setName("ExplainBtn");
 
-		JButton ExitBtn = new JButton(new ImageIcon("img/button/gameQuit.png"));
+		ExitBtn = new JButton(new ImageIcon("img/button/gameQuit.png"));
 		ExitBtn.setName("ExitBtn");
 
 		// 버튼에 리스너 추가
@@ -58,4 +63,3 @@ public class IntroPanel extends JPanel {
 		ExitBtn.setRolloverIcon(new ImageIcon("img/button/gameQuitSelect.png"));
 	}
 }
-//시작 화면

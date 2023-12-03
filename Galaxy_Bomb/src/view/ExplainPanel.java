@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class ExplainPanel extends JPanel {
-	private ImageIcon explainIc = new ImageIcon("img/background/explain.png"); // 설명 이미지
+	private ImageIcon explainImg = new ImageIcon("img/background/explain.png"); // 설명 이미지
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // 화면을 비운다
 
-		g.drawImage(explainIc.getImage(), 0, 0, null); // 설명 이미지 그리기
+		g.drawImage(explainImg.getImage(), 0, 0, null); // 설명 이미지 그리기
 	}
 
 	// 뒤로가기 버튼 선언
