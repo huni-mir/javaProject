@@ -79,7 +79,7 @@ public class SelectPanel extends JPanel {
 
 	public SelectPanel(Object o) {
 		setLayout(null);
-		
+
 		// 뒤로가기 버튼 설정
 		backBtn = new JButton(new ImageIcon("img/button/back_black.png"));
 		backBtn.setName("backBtn");
@@ -139,7 +139,8 @@ public class SelectPanel extends JPanel {
 					// 전달할 1p 캐릭터 값 저장
 					cv1P = new CharacterValue1p(3, 25, 2, 1, new ImageIcon("img/character/catFront.png"),
 							new ImageIcon("img/character/catback.png"), new ImageIcon("img/character/catleft.png"),
-							new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/catdie.png"));
+							new ImageIcon("img/character/catright.png"), new ImageIcon("img/character/cat_Left.png"),
+							new ImageIcon("img/character/cat_Right.png"), new ImageIcon("img/character/catdie.png"));
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
 					// 2p 프로필 이미지 설정
 					remove(pick2p);
@@ -155,7 +156,8 @@ public class SelectPanel extends JPanel {
 					// 전달할 2p 캐릭터 값 저장
 					cv2P = new CharacterValue2p(3, 25, 2, 1, new ImageIcon("img/character/catFront2.png"),
 							new ImageIcon("img/character/catback2.png"), new ImageIcon("img/character/catleft2.png"),
-							new ImageIcon("img/character/catright2.png"), new ImageIcon("img/character/catdie2.png"));
+							new ImageIcon("img/character/catright2.png"), new ImageIcon("img/character/cat_Left2.png"),
+							new ImageIcon("img/character/cat_Right2.png"), new ImageIcon("img/character/catdie2.png"));
 				}
 				// 스탯 이미지 설정
 				remove(statItem);
@@ -209,6 +211,8 @@ public class SelectPanel extends JPanel {
 							new ImageIcon("img/character/rabbitback.png"),
 							new ImageIcon("img/character/rabbitleft.png"),
 							new ImageIcon("img/character/rabbitright.png"),
+							new ImageIcon("img/character/rabbit_Left.png"),
+							new ImageIcon("img/character/rabbit_Right.png"),
 							new ImageIcon("img/character/rabbitdie.png"));
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
 					// 2p 프로필 이미지 설정
@@ -227,6 +231,8 @@ public class SelectPanel extends JPanel {
 							new ImageIcon("img/character/rabbitback2.png"),
 							new ImageIcon("img/character/rabbitleft2.png"),
 							new ImageIcon("img/character/rabbitright2.png"),
+							new ImageIcon("img/character/rabbit_Left2.png"),
+							new ImageIcon("img/character/rabbit_Right2.png"),
 							new ImageIcon("img/character/rabbitdie2.png"));
 				}
 				// 스탯 이미지 설정
@@ -279,7 +285,8 @@ public class SelectPanel extends JPanel {
 					// 전달할 1p 캐릭터 값 저장
 					cv1P = new CharacterValue1p(3, 25, 1, 2, new ImageIcon("img/character/bearFront.png"),
 							new ImageIcon("img/character/bearback.png"), new ImageIcon("img/character/bearleft.png"),
-							new ImageIcon("img/character/bearright.png"), new ImageIcon("img/character/beardie.png"));
+							new ImageIcon("img/character/bearright.png"), new ImageIcon("img/character/bear_Left.png"),
+							new ImageIcon("img/character/bear_Right.png"), new ImageIcon("img/character/beardie.png"));
 
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
 					// 2p 프로필 이미지 설정
@@ -296,7 +303,10 @@ public class SelectPanel extends JPanel {
 					// 전달할 2p 캐릭터 값 저장
 					cv2P = new CharacterValue2p(3, 25, 1, 2, new ImageIcon("img/character/bearFront2.png"),
 							new ImageIcon("img/character/bearback2.png"), new ImageIcon("img/character/bearleft2.png"),
-							new ImageIcon("img/character/bearright2.png"), new ImageIcon("img/character/beardie2.png"));
+							new ImageIcon("img/character/bearright2.png"),
+							new ImageIcon("img/character/bear_Left2.png"),
+							new ImageIcon("img/character/bear_Right2.png"),
+							new ImageIcon("img/character/beardie2.png"));
 				}
 				// 스탯 이미지 설정
 				remove(statItem);
@@ -350,6 +360,8 @@ public class SelectPanel extends JPanel {
 							new ImageIcon("img/character/astronautback.png"),
 							new ImageIcon("img/character/astronautleft.png"),
 							new ImageIcon("img/character/astronautright.png"),
+							new ImageIcon("img/character/astronaut_Left.png"),
+							new ImageIcon("img/character/astronaut_Right.png"),
 							new ImageIcon("img/character/astronautdie.png"));
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
 					// 2p 프로필 이미지 설정
@@ -368,6 +380,8 @@ public class SelectPanel extends JPanel {
 							new ImageIcon("img/character/astronautback2.png"),
 							new ImageIcon("img/character/astronautleft2.png"),
 							new ImageIcon("img/character/astronautright2.png"),
+							new ImageIcon("img/character/astronaut_Left2.png"),
+							new ImageIcon("img/character/astronaut_Right2.png"),
 							new ImageIcon("img/character/astronautdie.png"));
 				}
 				// 스탯 이미지 설정

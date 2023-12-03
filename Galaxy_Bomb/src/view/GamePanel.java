@@ -65,7 +65,7 @@ public class GamePanel extends JPanel {
 	private final int limitMaxY = 1124;
 
 	// 1P 이미지, 능력치
-	private ImageIcon front1P, back1P, left1P, right1P, dieimg1P;
+	private ImageIcon front1P, back1P, left1P, right1P, left1P_2, right1P_2, dieimg1P;
 	private int heart1P = 0; // 1P 체력
 	private int speed1P = 25; // 1P 스피드
 	private int bomb1P = 0; // 1P 폭탄 갯수
@@ -74,7 +74,7 @@ public class GamePanel extends JPanel {
 	private JLabel c1p;
 
 	// 2P 이미지, 능력치
-	private ImageIcon front2P, back2P, left2P, right2P, dieimg2P;
+	private ImageIcon front2P, back2P, left2P, right2P, left2P_2, right2P_2, dieimg2P;
 	private int heart2P = 0; // 2P 체력
 	private int speed2P = 25; // 2P 스피드
 	private int bomb2P = 0; // 2P 폭탄 갯수
@@ -104,11 +104,17 @@ public class GamePanel extends JPanel {
 
 	// 키 입력 확인 2P
 	boolean keyUp, keyDown, keyLeft, keyRight, keyShift_Right = false;
+	
+	// 캐릭터 움직임 구현 변수
+	private int leftCount1p = 0;
+	private int rightCount1p = 0;
+	private int leftCount2p = 0;
+	private int rightCount2p = 0;
 
 	public GamePanel(Object o) {
 		restartBtn.addActionListener((ActionListener) o); // 다시 시작 버튼 리스너 추가
 	}
-
+	
 	// 1P 이동, 블록 막힘 메소드
 	public void processInput1() {
 		p1X = c1p.getX();
@@ -148,13 +154,33 @@ public class GamePanel extends JPanel {
 		}
 		if (keyD == true) { // 왼
 			if (p1X >= limitMinY) {
-				c1p.setIcon(left1P);
+				if (leftCount1p < 10) {
+					c1p.setIcon(left1P);
+					leftCount1p ++;
+				}
+				if (leftCount1p >= 10) {
+					c1p.setIcon(left1P_2);
+					leftCount1p ++;
+					if (leftCount1p == 19) {
+						leftCount1p = 0;
+					}
+				}
 				c1p.setLocation(p1X - 3, p1Y);
 			}
 		}
 		if (keyG == true) { // 오
 			if (p1X <= limitMaxY) {
-				c1p.setIcon(right1P);
+				if (rightCount1p < 10) {
+					c1p.setIcon(right1P);
+					rightCount1p ++;
+				}
+				if (rightCount1p >= 10) {
+					c1p.setIcon(right1P_2);
+					rightCount1p ++;
+					if (rightCount1p == 19) {
+						rightCount1p = 0;
+					}
+				}
 				c1p.setLocation(p1X + 3, p1Y);
 			}
 		}
@@ -199,13 +225,33 @@ public class GamePanel extends JPanel {
 		}
 		if (keyLeft == true) { // 왼
 			if (p2X >= limitMinY) {
-				c2p.setIcon(left2P);
+				if (leftCount2p < 10) {
+					c2p.setIcon(left2P);
+					leftCount2p ++;
+				}
+				if (leftCount2p >= 10) {
+					c2p.setIcon(left2P_2);
+					leftCount2p ++;
+					if (leftCount2p == 19) {
+						leftCount2p = 0;
+					}
+				}
 				c2p.setLocation(p2X - 3, p2Y);
 			}
 		}
 		if (keyRight == true) { // 오
 			if (p2X <= limitMaxY) {
-				c2p.setIcon(right2P);
+				if (rightCount2p < 10) {
+					c2p.setIcon(right2P);
+					rightCount2p ++;
+				}
+				if (rightCount2p >= 10) {
+					c2p.setIcon(right2P_2);
+					rightCount2p ++;
+					if (rightCount2p == 19) {
+						rightCount2p = 0;
+					}
+				}
 				c2p.setLocation(p2X + 3, p2Y);
 			}
 		}
@@ -223,7 +269,7 @@ public class GamePanel extends JPanel {
 		} else if ((p2X > bx1P - 100 && p2X < bx1P + 100) && (p2Y > by1P - 100 && p2Y < by1P + 100)) {
 			die2 = true;
 		}
-		
+
 		Die();
 
 		for (int i = 0; i < block.size(); i++) {
@@ -246,7 +292,7 @@ public class GamePanel extends JPanel {
 		} else if ((p1X > bx2P - 100 && p1X < bx2P + 100) && (p1Y > by2P - 100 && p1Y < by2P + 100)) {
 			die1 = true;
 		}
-		
+
 		Die();
 
 		for (int i = 0; i < block.size(); i++) {
@@ -273,10 +319,10 @@ public class GamePanel extends JPanel {
 
 				if (item1 == speed_up) {
 					itemCode[count] = 1;
-					count += 1;
+					count ++;
 				} else if (item1 != speed_up) {
 					itemCode[count] = 2;
-					count += 1;
+					count ++;
 				}
 
 				block.remove(j);
@@ -462,15 +508,14 @@ public class GamePanel extends JPanel {
 			if ((p1X + 73 > blockList.get(i).getX() && p1X < blockList.get(i).getX() + 75)
 					&& (p1Y + 100 > blockList.get(i).getY() && p1Y - 50 < blockList.get(i).getY())) {
 				if (blockList.get(i).getIcon() != null && itemCode[i] == 1) {
-					
+
 					speed1P -= 5;
 					blockList.get(i).setIcon(null);
-					
+
 					if (speed1P < 10) {
 						speed1P = 10;
 					}
-				}
-				else if (blockList.get(i).getIcon() != null && itemCode[i] != 1) {
+				} else if (blockList.get(i).getIcon() != null && itemCode[i] != 1) {
 					blockList.get(i).setIcon(null);
 				}
 			}
@@ -481,7 +526,7 @@ public class GamePanel extends JPanel {
 
 					speed2P -= 5;
 					blockList.get(i).setIcon(null);
-					
+
 					if (speed2P < 10) {
 						speed2P = 10;
 					}
@@ -597,7 +642,7 @@ public class GamePanel extends JPanel {
 		c2p = new JLabel(front2P);
 		this.add(c2p);
 		c2p.setBounds(1050, 725, 73, 100);
-		
+
 		// 블록 세팅
 		initMap();
 
@@ -616,13 +661,14 @@ public class GamePanel extends JPanel {
 		back1P = cv1p.getBack1P();
 		left1P = cv1p.getLeft1P();
 		right1P = cv1p.getRight1P();
+		left1P_2 = cv1p.getLeft1P_2();
+		right1P_2 = cv1p.getRight1P_2();
 		dieimg1P = cv1p.getDieimg1P();
 
 		heart1P = cv1p.getHeart1P(); // 1P 체력
 		speed1P = cv1p.getSpeed1P(); // 1P 스피드
 		bomb1P = cv1p.getBomb1P(); // 1P 폭탄 갯수
 		range1P = cv1p.getRange1P(); // 1P 폭탄 범위
-
 	}
 
 	// 선택된 2p 캐릭터 이미지 및 능력치를 받아옴
@@ -632,13 +678,14 @@ public class GamePanel extends JPanel {
 		back2P = cv2p.getBack2P();
 		left2P = cv2p.getLeft2P();
 		right2P = cv2p.getRight2P();
+		left2P_2 = cv2p.getLeft2P_2();
+		right2P_2 = cv2p.getRight2P_2();
 		dieimg2P = cv2p.getDieimg2P();
 
 		heart2P = cv2p.getHeart2P(); // 2P 체력
 		speed2P = cv2p.getSpeed2P(); // 2P 스피드
 		bomb2P = cv2p.getBomb2P(); // 2P 폭탄 갯수
 		range2P = cv2p.getRange2P(); // 2P 폭탄 범위
-
 	}
 
 	// 블록 세팅
@@ -667,7 +714,7 @@ public class GamePanel extends JPanel {
 						|| i == 3 && j == 4 || i == 6 && j == 4 // 5번째 열
 						|| (i > 2 && i < 7) && j == 5 // 6번째 열
 						|| i == 3 && j == 6 || i == 6 && j == 6 // 7번째 열
-						|| i == 3 && j == 7 || i == 6 && j == 7 ) { // 8번째 열
+						|| i == 3 && j == 7 || i == 6 && j == 7) { // 8번째 열
 					JLabel blockpink = new JLabel(new ImageIcon("img/block/PinkBlock.png"));
 					block.add(blockpink);
 					this.add(blockpink);
@@ -676,7 +723,7 @@ public class GamePanel extends JPanel {
 						|| i == 7 && j == 4 || i == 11 && j == 4 // 5번째 열
 						|| i == 7 && j == 5 || i == 11 && j == 5 // 6번째 열
 						|| i == 8 && j == 6 || i == 10 && j == 6 // 7번째 열
-						|| i == 9 && j == 7 ) { // 8번째 열
+						|| i == 9 && j == 7) { // 8번째 열
 					JLabel blockblue = new JLabel(new ImageIcon("img/block/BlueBlock.png"));
 					block.add(blockblue);
 					this.add(blockblue);
@@ -685,7 +732,7 @@ public class GamePanel extends JPanel {
 						|| i == 12 && j == 4 || i == 15 && j == 4 // 5번째 열
 						|| (i > 11 && i < 16) && j == 5 // 6번째 열
 						|| i == 12 && j == 6 || i == 15 && j == 6 // 7번째 열
-						|| i == 12 && j == 7 || i == 15 && j == 7 ) { // 8번째 열
+						|| i == 12 && j == 7 || i == 15 && j == 7) { // 8번째 열
 					JLabel blockpuple = new JLabel(new ImageIcon("img/block/PupleBlock.png"));
 					block.add(blockpuple);
 					this.add(blockpuple);
@@ -757,7 +804,7 @@ public class GamePanel extends JPanel {
 					keyDown = false;
 					keyLeft = false;
 					break;
-					
+
 				// 폭탄 드랍 키
 				case KeyEvent.VK_SHIFT:
 					if (keyLocation == KeyEvent.KEY_LOCATION_LEFT) {

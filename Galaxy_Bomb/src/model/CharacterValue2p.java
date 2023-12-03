@@ -15,20 +15,24 @@ public class CharacterValue2p {
 	private ImageIcon back2P; // 뒷면
 	private ImageIcon left2P; // 왼쪽
 	private ImageIcon right2P; // 오른쪽
+	private ImageIcon left2P_2; // 왼쪽 2
+	private ImageIcon right2P_2; // 오른쪽 2
 	private ImageIcon dieimg2P; // 죽음
 
 	// 생성자
-	public CharacterValue2p(int heart2P, int speed2P, int bomb2P, int range2P, ImageIcon front2p, ImageIcon back2p,
-			ImageIcon left2p, ImageIcon right2p, ImageIcon dieimg2p) {
+	public CharacterValue2p(int heart2P, int speed2P, int bomb2P, int range2P, ImageIcon front2P, ImageIcon back2P,
+			ImageIcon left2P, ImageIcon right2P, ImageIcon left2P_2, ImageIcon right2P_2, ImageIcon dieimg2P) {
 		this.heart2P = heart2P;
 		this.speed2P = speed2P;
 		this.bomb2P = bomb2P;
 		this.range2P = range2P;
-		this.front2P = front2p;
-		this.back2P = back2p;
-		this.left2P = left2p;
-		this.right2P = right2p;
-		this.dieimg2P = dieimg2p;
+		this.front2P = front2P;
+		this.back2P = back2P;
+		this.left2P = left2P;
+		this.right2P = right2P;
+		this.left2P_2 = left2P_2;
+		this.right2P_2 = right2P_2;
+		this.dieimg2P = dieimg2P;
 	}
 
 	// Getter 및 Setter 메서드
@@ -94,6 +98,22 @@ public class CharacterValue2p {
 
 	public void setRight2P(ImageIcon right2P) {
 		this.right2P = right2P;
+	}
+	
+	public ImageIcon getLeft2P_2() {
+		return left2P_2;
+	}
+	
+	public void setLeft2P_2(ImageIcon left2P_2) {
+		this.left2P_2 = left2P_2;
+	}
+
+	public ImageIcon getRight2P_2() {
+		return right2P_2;
+	}
+
+	public void setRight2P_2(ImageIcon right2P_2) {
+		this.right2P_2 = right2P_2;
 	}
 
 	public ImageIcon getDieimg2P() {
